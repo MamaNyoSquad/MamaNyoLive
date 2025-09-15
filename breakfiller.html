@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://mamanyosquad.github.io/assets/favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://mamanyosquad.github.io/assets/favicon.png" type="image/x-icon">
+    <title>#MamaNyoSquad&ensp;&bull; LIVE&ensp;|&ensp;Breakfiller</title>
+    <style type="text/css" media="all">
+      /* css */
+      @import url('https://fonts.googleapis.com/css2?family=Fredoka:wdth,wght@75..125,300..700&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+      html, body {
+        height: 100%;
+        overflow-x: hidden;
+        -ms-word-wrap: break-word;
+        word-wrap: break-word;
+        scroll-behavior: smooth;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        color: #fff;
+        background-color: #161224;
+        background-image: url("https://mamanyosquad.github.io/assets/images/background/nyoBG.png");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        overflow: hidden;
+      }
+      body > div {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+      }
+      .clockOVL > div {
+        position: absolute;
+        bottom: calc(1.9rem * 2);
+        right: calc(1.9rem * 5);
+        text-align: right;
+        width: max-content;
+        max-width: 100%;
+      }
+      .hdlOVL * {
+        -webkit-transition: 0.95s;
+        -moz-transition: 0.95s;
+        -o-transition: 0.95s;
+        transition: 0.95s;
+      }
+      .hdlOVL > div {
+        position: absolute;
+        width: 100%;
+        padding: calc(1.9rem * 3) calc(1.9rem * 5) 0 calc(1.9rem * 5);
+      }
+      .hdlImg {
+        width: 100%;
+        height: calc(1.9rem * 16.25);
+        overflow: hidden;
+      }
+      .hdlImg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+      }
+      div[hdlTitleGrp] { overflow: hidden; }
+      p[hdlSubt] {
+        font-weight: bold;
+        font-size: calc(1.9rem + calc(1.9rem * -0.25));
+      }
+      p[hdlTitle] {
+        font-family: 'Fredoka', sans-serif;
+        font-size: calc(1.9rem + calc(1.9rem * 0.625));
+        font-optical-sizing: auto;
+        font-weight: 600;
+        font-variation-settings: 'wdth' 125;
+      }
+      div[hdlDescGrp] {
+        overflow: hidden;
+        font-size: calc(1.9rem + calc(1.9rem * -0.125));
+      }
+      .MamaNyoLIVE > div {
+        position: absolute;
+        bottom: calc(1.9rem * 2);
+        left: calc(1.9rem * 5);
+      }
+    </style>
+    <script type="text/javascript">
+      // js
+      let bkflrImg = [
+        `https://www.gamecity.com.tw/venusvacation/prism/assets/img/top-story_01.jpg`,
+        `https://mamanyosquad.github.io/assets/images/venusIsland/vi_2.jpg`
+      ],
+      bkflrSubt = [
+        `UPCOMING&ensp;&bull;&ensp;from 11:50pm VIT`,
+        `COMING UP`
+      ],
+      bkflrHdl = [
+        `DOAXVV + PRISM at Tokyo Game Show 2025`,
+        `The Squad's Thoughts About the TGS Developments`
+      ],
+      bkflrDesc = [
+        `KOEI TECMO, Team NINJA, and DOAXVV Development Staff will present the latest developments involving the Venus Vacation Series -- DOAXVV and PRISM -- during their leg of the Tokyo Game Show 2025.`,
+        `Aga-chuu -- G.Mgr of the Squad -- shares her thoughts about the recent developments regarding the Venus Vacation Series announced during Tokyo Game Show 2025.`
+      ];
+      function viClock() {
+        let tD = new Date(new Date().getTime() + diffOffs(11)),
+          hh = tD.getHours(),
+          mm = addZero(tD.getMinutes()),
+          ss = addZero(tD.getSeconds());
+        document.querySelector(".clockOVL > div > p[viClock]").innerHTML = `${hr12(hh)}:${mm}${ampm(hh)} VIT`;
+        document.querySelector(".clockOVL > div > p[viDate]").innerHTML = `${daysOfTheWeek(tD.getDay())}, ${tD.getDate()} ${monthNum(tD.getMonth())} ${tD.getFullYear()}`;
+        setTimeout(viClock, 0);
+      }
+      function addZero(z) {
+        if (z < 10) { return `0${z}`; }
+        else { return z; };
+      }
+      function diffOffs(tz) {
+        let dt = new Date(),
+          tzDiff = tz * 60 + dt.getTimezoneOffset();
+        return tzDiff * 60 * 1000;
+      }
+      function hr12(hr) {
+        let hrs = ["12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"];
+        for (let a = hr; a <= 23; a++) {
+          if (hr <= 11) { return hrs[a]; }
+          else if (hr <= 23) { return hrs[a - hrs.length]; }
+        }
+      }
+      function ampm(ap) {
+        let apD = ["am", "pm"];
+        for (let p = ap; p <= 23; p++) {
+          if (ap <= 11) { return apD[0]; }
+          else if (ap <= 23) { return apD[1]; }
+        }
+      }
+      function daysOfTheWeek(wd) {
+        let weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        return weekday[wd];
+      }
+      function monthNum(mth) {
+        let months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+        return months[mth];
+      }
+      function bkflr() {
+        let idx = 0;
+        setInterval(() => {
+          let curBkflrImg = bkflrImg[idx],
+            curBkflrSubt = bkflrSubt[idx],
+            curBkflrHdl = bkflrHdl[idx],
+            curBkflrDesc = bkflrDesc[idx];
+          setTimeout(() => {
+            document.querySelector(".hdlImg > img").setAttribute("style", `-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: translateY(-${getComputedStyle(document.querySelector(".hdlImg > img")).height});`);
+            document.querySelector(".hdlTxt > div[hdlTitleGrp] > div").setAttribute("style", `-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: translateY(-${getComputedStyle(document.querySelector(".hdlTxt > div[hdlTitleGrp]")).height});`);
+            document.querySelector(".hdlTxt > div[hdlDescGrp] > div").setAttribute("style", `-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: translateY(-${getComputedStyle(document.querySelector(".hdlTxt > div[hdlDescGrp]")).height});`);
+            setTimeout(() => {
+              document.querySelector(".hdlImg > img").setAttribute("style", `-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: translateY(-${getComputedStyle(document.querySelector(".hdlImg > img")).height});`);
+              document.querySelector(".hdlTxt > div[hdlTitleGrp] > div").setAttribute("style", `-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: translateY(-${getComputedStyle(document.querySelector(".hdlTxt > div[hdlTitleGrp]")).height});`);
+              document.querySelector(".hdlTxt > div[hdlDescGrp] > div").setAttribute("style", `-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: translateY(-${getComputedStyle(document.querySelector(".hdlTxt > div[hdlDescGrp]")).height});`);
+              setTimeout(() => {
+                document.querySelector(".hdlImg > img").setAttribute("src", curBkflrImg);
+                document.querySelector(".hdlTxt > div[hdlTitleGrp] > div > p[hdlSubt]").innerHTML = curBkflrSubt;
+                document.querySelector(".hdlTxt > div[hdlTitleGrp] > div > p[hdlTitle]").innerHTML = curBkflrHdl;
+                document.querySelector(".hdlTxt > div[hdlDescGrp] > div > p[hdlDesc]").innerHTML = curBkflrDesc;
+                document.querySelector(".hdlImg > img").setAttribute("style", `-webkit-transition: unset; -moz-transition: unset; -o-transition: unset; transition: unset; transform: translateY(${getComputedStyle(document.querySelector(".hdlImg > img")).height});`);
+                document.querySelector(".hdlTxt > div[hdlTitleGrp] > div").setAttribute("style", `-webkit-transition: unset; -moz-transition: unset; -o-transition: unset; transition: unset; transform: translateY(${getComputedStyle(document.querySelector(".hdlTxt > div[hdlTitleGrp]")).height});`);
+                document.querySelector(".hdlTxt > div[hdlDescGrp] > div").setAttribute("style", `-webkit-transition: unset; -moz-transition: unset; -o-transition: unset; transition: unset; transform: translateY(${getComputedStyle(document.querySelector(".hdlTxt > div[hdlDescGrp]")).height});`);
+                setTimeout(() => {
+                  document.querySelector(".hdlImg > img").setAttribute("style", `-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: initial;`);
+                  document.querySelector(".hdlTxt > div[hdlTitleGrp] > div").setAttribute("style", `-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: initial;`);
+                  document.querySelector(".hdlTxt > div[hdlDescGrp] > div").setAttribute("style", `-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: initial;`);
+                }, 950);
+              }, 0);
+            }, 950);
+          }, 950);
+          idx = (idx + 1) % bkflrImg.length;
+        }, 9500);
+      }
+    </script>
+    <script type="text/javascript">
+      // breakfiller executions
+      function editBkflr(newImg, newSubt, newHdl, newDesc) {
+        // changes to take effect on next index, will reset to initial upon reload
+        // and they have to be encapsulated in backticks `` as they will render as innerHTML
+        bkflrImg = newImg;
+        bkflrSubt = newSubt;
+        bkflrHdl = newHdl;
+        bkflrDesc = newDesc;
+      }
+    </script>
+  </head>
+  <body onload="{
+    viClock();
+    bkflr();
+  }">
+    <div class="hdlOVL">
+      <div>
+        <div class="hdlImg">
+          <img src="" alt="">
+        </div>
+        <br>
+        <div class="hdlTxt">
+          <div hdlTitleGrp>
+            <div>
+              <p hdlSubt></p>
+              <p hdlTitle></p>
+            </div>
+          </div>
+          <br>
+          <div hdlDescGrp>
+            <div>
+              <p hdlDesc></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="MamaNyoLIVE">
+      <div>
+        <img style="width: calc(1.9rem * 12.5);" src="md_files/MamaNyoLive_logo.png" alt="">
+      </div>
+    </div>
+    <div class="clockOVL">
+      <div>
+        <p viClock style="
+          font-family: 'Fredoka', sans-serif;
+          font-size: calc(1.9rem + calc(1.9rem * 1));
+          font-optical-sizing: auto;
+          font-weight: 600;
+          font-variation-settings: 'wdth' 125;
+        "></p>
+        <p viDate style="
+          font-size: calc(1.9rem + calc(1.9rem * -0.125));
+        "></p>
+      </div>
+    </div>
+  </body>
+</html>

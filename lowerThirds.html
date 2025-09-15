@@ -23,6 +23,7 @@
       }
       body {
         font-family: "Poppins", sans-serif;
+        color: #fff;
         width: 100vw;
         height: 100vh;
         position: absolute;
@@ -33,7 +34,6 @@
         width: 100vw;
         padding: 0 calc(1.9rem * 3) 0.95rem calc(1.9rem * 3);
         background-color: #161224;
-        color: white;
         font-size: calc(1.9em - calc(1.9em / 4));
         position: absolute;
         bottom: 0;
@@ -71,7 +71,6 @@
         width: 100vw;
         padding: 0.95rem calc(1.9rem * 3) calc(0.95rem + 64.375px) calc(1.9rem * 3);
         background-color: #06a8ff;
-        color: white;
         position: absolute;
         bottom: 0;
         -webkit-transition: 0.95s;
@@ -90,8 +89,7 @@
         transform: translateY(275.875px);
         width: 100vw;
         padding: calc(0.95rem - calc(0.95rem / 1.5)) calc(1.9rem * 3) calc(calc(0.95rem - calc(0.95rem / 1.5)) + 231.75px) calc(1.9rem * 3);
-        background-color: red;
-        color: white;
+        background-color: #f00;
         font-size: calc(1.9em - calc(1.9em / 4));
         font-weight: bold;
         position: absolute;
@@ -106,7 +104,7 @@
     <script type="text/javascript">
       // js
       let txt = [
-        `#MamaNyoSquad&ensp;<b><span style="color: red;">&bull;</span> LIVE</b>&emsp;|&emsp;Simulcasting with DOAXVV Japanese`,
+        `#MamaNyoSquad&ensp;<b><span style="color: #f00;">&bull;</span> LIVE</b>&emsp;|&emsp;Simulcasting with DOAXVV Japanese`,
         `${daysOfTheWeek(new Date(new Date().getTime() + diffOffs(11)).getDay())}, ${new Date(new Date().getTime() + diffOffs(11)).getDate()} ${monthNum(new Date(new Date().getTime() + diffOffs(11)).getMonth())} ${new Date(new Date().getTime() + diffOffs(11)).getFullYear()}`,
         `Website: https://mamanyosquad.github.io`
       ]
@@ -155,7 +153,7 @@
           let curTxt = txt[idx];
           // document.querySelector(".lowerThirds > div > p > span").innerText = curTxt;
           setTimeout(() => {
-            document.querySelector(".lowerThirds > div > p > span").setAttribute("style", "-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: translateY(calc(-1.9rem + calc(-1.9rem / 6)));")
+            document.querySelector(".lowerThirds > div > p > span").setAttribute("style", "-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: translateY(calc(-1.9rem + calc(-1.9rem / 6)));");
             setTimeout(() => {
               document.querySelector(".lowerThirds > div > p > span").setAttribute("style", "-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: translateY(calc(-1.9rem + calc(-1.9rem / 6)));");
               setTimeout(() => {

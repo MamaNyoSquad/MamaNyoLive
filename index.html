@@ -6,7 +6,7 @@
     <link rel="icon" href="https://mamanyosquad.github.io/assets/favicon.png" type="image/x-icon">
     <link rel="apple-touch-icon" href="https://mamanyosquad.github.io/assets/favicon.png" type="image/x-icon">
     <title>#MamaNyoSquad&ensp;&bull; LIVE</title>
-    <style>
+    <style type="text/css" media="all">
       /* css */
       @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
       @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
@@ -72,6 +72,11 @@
         -o-transition: 0.19s;
         transition: 0.19s;
       }
+      button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        /* pointer-events: none; */
+      }
       code {
         background-color: #ffffff20;
         padding: 0.095rem calc(0.095rem * 5);
@@ -99,7 +104,7 @@
         body { font-size: xx-large; }
       }
     </style>
-    <script>
+    <script type="text/javascript">
       // js
     </script>
   </head>
@@ -140,7 +145,7 @@
         In order prepare your software, you may refer to the following documentation:
       </p>
       <br>
-      <button onclick="window.open('https://github.com/MamaNyoSquad/MamaNyoLive/wiki/Getting-Started')">Documentation</button>
+      <button onclick="window.open('https://github.com/MamaNyoSquad/MamaNyoLive/wiki/Getting-Started')" disabled>Documentation</button>
       <br><br>
       <h2>Stream resources</h2>
       <br>
@@ -155,8 +160,8 @@
       </p>
       <br>
       <p>
-        The design language is based from BBC News' version of their lower thirds,
-        with some modifications to the fonts and palette.
+        The design language is based on BBC News' version of their lower thirds, with
+        some modifications to the fonts and palette.
       </p>
       <br>
       <button onclick="{
@@ -166,7 +171,30 @@
           this.innerText = 'Copy link';
         }, 950);
       }">Copy link</button>
-      <button onclick="window.open('https://github.com/MamaNyoSquad/MamaNyoLive/wiki/Usages#lower-thirds')">Documentation</button>
+      <button onclick="window.open('https://github.com/MamaNyoSquad/MamaNyoLive/wiki/Usages#lower-thirds')" disabled>Documentation</button>
+      <br>
+      <h3>Breakfiller</h3>
+      <p>File: <code>breakfiller.html</code></p>
+      <br>
+      <p>
+        THe Breakfiller provides a quick summary of the events that will be happening
+        during the stream to keep viewers in the loop on what they can expect.
+      </p>
+      <br>
+      <p>
+        Although the animation language is based on BBC News' version due to the way
+        the elements are animated, it employs its own design language that takes
+        detail into account.
+      </p>
+      <br>
+      <button onclick="{
+        navigator.clipboard.writeText('https://mamanyosquad.github.io/MamaNyoLive/breakfiller');
+        this.innerText = 'Link copied!';
+        setTimeout(() => {
+          this.innerText = 'Copy link';
+        }, 950);
+      }">Copy link</button>
+      <button onclick="window.open('https://github.com/MamaNyoSquad/MamaNyoLive/wiki/Usages#breakfiller')" disabled>Documentation</button>
       <br><br><br><br>
       <p style="font-size: calc(1em - calc(1em / 4));">
         Sourcecode lic. MIT&ensp;&bull;&ensp;Documentation lic. CC-BY
