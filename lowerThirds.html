@@ -106,7 +106,7 @@
     <script type="text/javascript">
       // js
       let txt = [
-        `#MamaNyoSquad <b>LIVE</b>&ensp;&bull;&ensp;Simulcasting with DOAXVV Japanese`,
+        `#MamaNyoSquad&ensp;<b><span style="color: red;">&bull;</span> LIVE</b>&ensp;|&ensp;Simulcasting with DOAXVV Japanese`,
         `${daysOfTheWeek(new Date(new Date().getTime() + diffOffs(11)).getDay())}, ${new Date(new Date().getTime() + diffOffs(11)).getDate()} ${monthNum(new Date(new Date().getTime() + diffOffs(11)).getMonth())} ${new Date(new Date().getTime() + diffOffs(11)).getFullYear()}`,
         `Website: https://mamanyosquad.github.io`
       ]
@@ -173,8 +173,8 @@
     </script>
     <script type="text/javascript">
       // ticker executions
-      function howToTickerExec() { console.log("available commands:\n\n- openLower()\n- editLower([`..`, `..`, ..])\n- openHdl(\"headline\", \"description\")\n- closeHdl()\n- openCmntr(\"commentator\")\n- closeCmntr()\n- closeTick()"); }
-      // function howToTickerExec() { console.log("Documentation: "); }
+      // function howToTickerExec() { console.log("available commands:\n\n- openLower()\n- editLower([`..`, `..`, ..])\n- openHdl(\"headline\", \"description\")\n- closeHdl()\n- openCmntr(\"commentator\")\n- closeCmntr()\n- closeTick()"); }
+      function howToTickerExec() { console.log("Documentation: https://github.com/MamaNyoSquad/MamaNyoLive/wiki/Usages#lower-thirds"); }
       function openLower() {
         document.querySelector(".cmntrTick").setAttribute("style", `transform: translateY(calc(${getComputedStyle(document.querySelector(".cmntrTick")).height} - ${getComputedStyle(document.querySelector(".lowerThirds")).height}));`);
         document.querySelector(".headingTick").setAttribute("style", `transform: translateY(calc(${getComputedStyle(document.querySelector(".headingTick")).height} - ${getComputedStyle(document.querySelector(".lowerThirds")).height}));`);
