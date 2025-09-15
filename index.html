@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://mamanyosquad.github.io/assets/favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://mamanyosquad.github.io/assets/favicon.png" type="image/x-icon">
+    <title>#MamaNyoSquad&ensp;&bull; LIVE</title>
+    <style>
+      /* css */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+      html, body {
+        height: 100%;
+        overflow-x: hidden;
+        -ms-word-wrap: break-word;
+        word-wrap: break-word;
+        scroll-behavior: smooth;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      img, video, iframe {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        pointer-events: none;
+      }
+      html {
+        background-color: #161224;
+        color: #ffffff;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        width: 100vw;
+      }
+      body > div {
+        width: calc(19rem * 2.5);
+        max-width: 100%;
+        margin: 0 auto;
+        padding: calc(1.9rem * 5) 1.9rem;
+      }
+      button {
+        background-color: #161224;
+        border: solid 2.85px #f00;
+        border-radius: 1900px;
+        color: inherit;
+        padding: calc(1.9rem / 3.75) 1.9rem;
+        font-family: inherit;
+        font-size: calc(1.9em / 2);
+        text-align: center;
+        text-decoration: none;
+        margin: 9.5px 1.9px 28.5px 1.9px;
+        cursor: pointer;
+        -webkit-transition: 0.475s;
+        -moz-transition: 0.475s;
+        -o-transition: 0.475s;
+        transition: 0.475s;
+      }
+      button:hover {
+        background-color: #f00;
+        border: solid 2.85px #06a8ff;
+      }
+      button:active {
+        background-color: #fff;
+        border: solid 2.85px #06a8ff;
+        color: #f00;
+        -webkit-transition: 0.19s;
+        -moz-transition: 0.19s;
+        -o-transition: 0.19s;
+        transition: 0.19s;
+      }
+      code {
+        background-color: #ffffff20;
+        padding: 0.095rem calc(0.095rem * 5);
+        -moz-border-radius: 4.75px;
+        -ms-border-radius: 4.75px;
+        -webkit-border-radius: 4.75px;
+        -o-border-radius: 4.75px;
+        border-radius: 4.75px;
+        font-family: 'IBM Plex Mono', monospace;
+      }
+      /* responsive fontsize */
+      @media screen and (max-width: 540px) {
+        body { font-size: normal; }
+      }
+      @media screen and (min-width: 540px) and (max-width: 1080px) {
+        body { font-size: large; }
+      }
+      @media screen and (min-width: 1080px) and (max-width: 1620px) {
+        body { font-size: larger; }
+      }
+      @media screen and (min-width: 1620px) and (max-width: 2160px) {
+        body { font-size: x-large; }
+      }
+      @media screen and (min-width: 2160px) {
+        body { font-size: xx-large; }
+      }
+    </style>
+    <script>
+      // js
+    </script>
+  </head>
+  <body>
+    <div>
+      <img src="/md_files/MamaNyoLive_logo.png" alt="#MamaNyoSquad LIVE">
+      <br><br>
+      <h1>
+        Welcome to #MamaNyoSquad&ensp;<span style="color: #f00;">&bull; </span>LIVE!
+      </h1>
+      <br>
+      <p>
+        This will serve as a directory to access the broadcast resources used during
+        live streams.
+      </p>
+      <br><br>
+      <h2>Who will be using this repository?</h2>
+      <br>
+      <p>
+        This repository is mainly used by the SquadMates in order to enhance the
+        broadcast experience, which is mainly events tied to DOAXVV and PRISM.
+      </p>
+      <br>
+      <p>
+        However, it may be used by anyone who wants to try the resources before using
+        in their own streams. Documentation is provided in order to help with using
+        such resources, added and updated over time.
+      </p>
+      <br>
+      <p>
+        Please know that in order to use these resources, you need to have a basic
+        understanding of JavaScript functions. In addition, you will need OBS (or any
+        streaming software) that supports browser sources -- configured to access the
+        software's DevTools.
+      </p>
+      <br>
+      <p>
+        In order prepare your software, you may refer to the following documentation:
+      </p>
+      <br>
+      <button onclick="window.open('https://github.com/MamaNyoSquad/MamaNyoLive/wiki')">Documentation</button>
+      <br><br>
+      <h2>Stream resources</h2>
+      <br>
+      <p>Relevant documentation about them are provided below each resource.</p>
+      <br>
+      <h3>Lower Thirds</h3>
+      <p>File: <code>lowerThirds.html</code></p>
+      <br>
+      <p>
+        Lower Thirds provide brief information about the stream, as well as news-like
+        contents that briefly describe the stream's event.
+      </p>
+      <br>
+      <p>
+        The design language is based from BBC News' version of their lower thirds,
+        with some modifications to the fonts and palette.
+      </p>
+      <br>
+      <button onclick="{
+        navigator.clipboard.writeText('https://mamanyosquad.github.io/MamaNyoLive/lowerThirds');
+        this.innerText = 'Link copied!';
+        setTimeout(() => {
+          this.innerText = 'Copy link';
+        }, 950);
+      }">Copy link</button>
+      <button onclick="window.open('https://github.com/MamaNyoSquad/MamaNyoLive/wiki/Usages#lower-thirds')">Documentation</button>
+      <br><br><br><br>
+      <p style="font-size: calc(1em - calc(1em / 4));">
+        Sourcecode lic. MIT&ensp;&bull;&ensp;Documentation lic. CC-BY
+        <br>
+        ©2025 #MamaNyoSquad
+      </p>
+    </div>
+  </body>
+</html>

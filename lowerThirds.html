@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://mamanyosquad.github.io/assets/favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://mamanyosquad.github.io/assets/favicon.png" type="image/x-icon">
+    <title>#MamaNyoSquad&ensp;&bull; LIVE&ensp;|&ensp;Lower Thirds</title>
+    <style type="text/css" media="all">
+      /* css */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+      html, body {
+        height: 100%;
+        overflow-x: hidden;
+        -ms-word-wrap: break-word;
+        word-wrap: break-word;
+        scroll-behavior: smooth;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        overflow: hidden;
+      }
+      .lowerThirds {
+        transform: translateY(64.375px);
+        width: 100vw;
+        padding: 0 calc(1.9rem * 3) 0.95rem calc(1.9rem * 3);
+        background-color: #161224;
+        color: white;
+        font-size: calc(1.9em - calc(1.9em / 4));
+        position: absolute;
+        bottom: 0;
+        -webkit-transition: 0.95s;
+        -moz-transition: 0.95s;
+        -o-transition: 0.95s;
+        transition: 0.95s;
+        display: -moz-grid;
+        display: -ms-grid;
+        display: grid;
+        grid-template-columns: auto 10%;
+        z-index: 5000;
+      }
+      .lowerThirds > .textTick {
+        padding-top: 0.95rem;
+        width: 100%;
+        overflow: hidden;
+      }
+      .textTick > p {
+        position: relative;
+        overflow: hidden !important;
+      }
+      .textTick > p > span { position: absolute; }
+      .lowerThirds > .clock {
+        width: 100%;
+        height: 100%;
+        background-color: #06a8ff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+      }
+      .headingTick {
+        transform: translateY(231.75px);
+        width: 100vw;
+        padding: 0.95rem calc(1.9rem * 3) calc(0.95rem + 64.375px) calc(1.9rem * 3);
+        background-color: #06a8ff;
+        color: white;
+        position: absolute;
+        bottom: 0;
+        -webkit-transition: 0.95s;
+        -moz-transition: 0.95s;
+        -o-transition: 0.95s;
+        transition: 0.95s;
+        z-index: 4500;
+      }
+      .hdlHd {
+        font-size: calc(1.9em * 2);
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      .hdlDsc { font-size: 1.9em; }
+      .cmntrTick {
+        transform: translateY(275.875px);
+        width: 100vw;
+        padding: calc(0.95rem - calc(0.95rem / 1.5)) calc(1.9rem * 3) calc(calc(0.95rem - calc(0.95rem / 1.5)) + 231.75px) calc(1.9rem * 3);
+        background-color: red;
+        color: white;
+        font-size: calc(1.9em - calc(1.9em / 4));
+        font-weight: bold;
+        position: absolute;
+        bottom: 0;
+        -webkit-transition: 0.95s;
+        -moz-transition: 0.95s;
+        -o-transition: 0.95s;
+        transition: 0.95s;
+        z-index: 4000;
+      }
+    </style>
+    <script type="text/javascript">
+      // js
+      let txt = [
+        `#MamaNyoSquad <b>LIVE</b>&ensp;&bull;&ensp;Simulcasting with DOAXVV Japanese`,
+        `${daysOfTheWeek(new Date(new Date().getTime() + diffOffs(11)).getDay())}, ${new Date(new Date().getTime() + diffOffs(11)).getDate()} ${monthNum(new Date(new Date().getTime() + diffOffs(11)).getMonth())} ${new Date(new Date().getTime() + diffOffs(11)).getFullYear()}`,
+        `Website: https://mamanyosquad.github.io`
+      ]
+      function viClock() {
+        let tD = new Date(new Date().getTime() + diffOffs(11)),
+          hh = tD.getHours(),
+          mm = addZero(tD.getMinutes()),
+          ss = addZero(tD.getSeconds());
+        document.querySelector(".clock > p").innerHTML = `${hr12(hh)}:${mm}${ampm(hh)} VIT`;
+        setTimeout(viClock, 0);
+      }
+      function addZero(z) {
+        if (z < 10) { return `0${z}`; }
+        else { return z; };
+      }
+      function diffOffs(tz) {
+        let dt = new Date(),
+          tzDiff = tz * 60 + dt.getTimezoneOffset();
+        return tzDiff * 60 * 1000;
+      }
+      function hr12(hr) {
+        let hrs = ["12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"];
+        for (let a = hr; a <= 23; a++) {
+          if (hr <= 11) { return hrs[a]; }
+          else if (hr <= 23) { return hrs[a - hrs.length]; }
+        }
+      }
+      function ampm(ap) {
+        let apD = ["am", "pm"];
+        for (let p = ap; p <= 23; p++) {
+          if (ap <= 11) { return apD[0]; }
+          else if (ap <= 23) { return apD[1]; }
+        }
+      }
+      function daysOfTheWeek(wd) {
+        let weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        return weekday[wd];
+      }
+      function monthNum(mth) {
+        let months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+        return months[mth];
+      }
+      function lowerThirdTick() {
+        let idx = 0;
+        setInterval(() => {
+          let curTxt = txt[idx];
+          // document.querySelector(".lowerThirds > div > p > span").innerText = curTxt;
+          setTimeout(() => {
+            document.querySelector(".lowerThirds > div > p > span").setAttribute("style", "-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: translateY(calc(-1.9rem + calc(-1.9rem / 6)));")
+            setTimeout(() => {
+              document.querySelector(".lowerThirds > div > p > span").setAttribute("style", "-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: translateY(calc(-1.9rem + calc(-1.9rem / 6)));");
+              setTimeout(() => {
+                document.querySelector(".lowerThirds > div > p > span").innerHTML = curTxt;
+                document.querySelector(".lowerThirds > div > p > span").setAttribute("style", "-webkit-transition: unset; -moz-transition: unset; -o-transition: unset; transition: unset; transform: translateY(calc(1.9rem + calc(1.9rem / 6)));");
+                setTimeout(() => {
+                  document.querySelector(".lowerThirds > div > p > span").setAttribute("style", "-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: initial;")
+                }, 950);
+              }, 0);
+            }, 950);
+          }, 950);
+          idx = (idx + 1) % txt.length;
+        }, 9500);
+      }
+    </script>
+    <script type="text/javascript">
+      // ticker executions
+      function howToTickerExec() { console.log("available commands:\n\n- openLower()\n- editLower([`..`, `..`, ..])\n- openHdl(\"headline\", \"description\")\n- closeHdl()\n- openCmntr(\"commentator\")\n- closeCmntr()\n- closeTick()"); }
+      // function howToTickerExec() { console.log("Documentation: "); }
+      function openLower() {
+        document.querySelector(".cmntrTick").setAttribute("style", `transform: translateY(calc(${getComputedStyle(document.querySelector(".cmntrTick")).height} - ${getComputedStyle(document.querySelector(".lowerThirds")).height}));`);
+        document.querySelector(".headingTick").setAttribute("style", `transform: translateY(calc(${getComputedStyle(document.querySelector(".headingTick")).height} - ${getComputedStyle(document.querySelector(".lowerThirds")).height}));`);
+        document.querySelector(".lowerThirds").setAttribute("style", `transform: initial;`);
+      }
+      // function closeLower() { document.querySelector(".lowerThirds").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector(".lowerThirds")).height});`); }
+      function editLower(tckr) {
+        // changes to take effect on next index, will reset to initial upon reload
+        // and they have to be encapsulated in backticks `` as they will render as innerHTML
+        txt = tckr;
+      }
+      function openHdl(hdl, dsc) {
+        if (document.querySelector(".lowerThirds").getBoundingClientRect().y == 970) {
+          document.querySelector(".headingTick > .hdlHd").innerText = `${hdl}`;
+          document.querySelector(".headingTick > .hdlDsc").innerText = `${dsc}`;
+          document.querySelector(".cmntrTick").setAttribute("style", `transform: translateY(calc(${getComputedStyle(document.querySelector(".cmntrTick")).height} - ${getComputedStyle(document.querySelector(".headingTick")).height}));`);
+          document.querySelector(".headingTick").setAttribute("style", `transform: initial;`);
+          document.querySelector(".lowerThirds").setAttribute("style", `transform: initial;`);
+        } else {
+          document.querySelector(".cmntrTick").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector(".cmntrTick")).height});`);
+          document.querySelector(".headingTick").setAttribute("style", `transform: translateY(calc(${getComputedStyle(document.querySelector(".headingTick")).height} - ${getComputedStyle(document.querySelector(".lowerThirds")).height}));`);
+          setTimeout(() => {
+            document.querySelector(".headingTick > .hdlHd").innerText = `${hdl}`;
+            document.querySelector(".headingTick > .hdlDsc").innerText = `${dsc}`;
+            document.querySelector(".cmntrTick").setAttribute("style", `transform: translateY(calc(${getComputedStyle(document.querySelector(".cmntrTick")).height} - ${getComputedStyle(document.querySelector(".headingTick")).height}));`);
+            document.querySelector(".headingTick").setAttribute("style", `transform: initial;`);
+            document.querySelector(".lowerThirds").setAttribute("style", `transform: initial;`);
+          }, 950);
+        }
+      }
+      function closeHdl() {
+        document.querySelector(".cmntrTick").setAttribute("style", `transform: translateY(calc(${getComputedStyle(document.querySelector(".cmntrTick")).height} - ${getComputedStyle(document.querySelector(".lowerThirds")).height}));`);
+        document.querySelector(".headingTick").setAttribute("style", `transform: translateY(calc(${getComputedStyle(document.querySelector(".headingTick")).height} - ${getComputedStyle(document.querySelector(".lowerThirds")).height}));`);
+      }
+      function openCmntr(cmntr) {
+        if (document.querySelector(".lowerThirds").getBoundingClientRect().y == 970 || document.querySelector(".headingTick").getBoundingClientRect().y == 905.625) {
+          document.querySelector(".cmntrTick > p").innerText = `${cmntr}`;
+          document.querySelector(".cmntrTick").setAttribute("style", `transform: initial;`);
+          document.querySelector(".headingTick").setAttribute("style", `transform: initial;`);
+          document.querySelector(".lowerThirds").setAttribute("style", `transform: initial;`);
+        } else {
+          document.querySelector(".cmntrTick").setAttribute("style", `transform: translateY(calc(${getComputedStyle(document.querySelector(".cmntrTick")).height} - ${getComputedStyle(document.querySelector(".headingTick")).height}));`);
+          setTimeout(() => {
+            document.querySelector(".cmntrTick > p").innerText = `${cmntr}`;
+            document.querySelector(".cmntrTick").setAttribute("style", `transform: initial;`);
+            document.querySelector(".headingTick").setAttribute("style", `transform: initial;`);
+            document.querySelector(".lowerThirds").setAttribute("style", `transform: initial;`);
+          }, 950);
+        }
+      }
+      function closeCmntr() { document.querySelector(".cmntrTick").setAttribute("style", `transform: translateY(calc(${getComputedStyle(document.querySelector(".cmntrTick")).height} - ${getComputedStyle(document.querySelector(".headingTick")).height}));`); }
+      function closeTick() {
+        document.querySelector(".cmntrTick").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector(".cmntrTick")).height});`);
+        document.querySelector(".headingTick").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector(".headingTick")).height});`);
+        document.querySelector(".lowerThirds").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector(".lowerThirds")).height});`);
+      }
+    </script>
+  </head>
+  <body onload="{
+    viClock();
+    lowerThirdTick();
+    howToTickerExec();
+  }">
+    <div class="lowerThirds">
+      <div class="textTick">
+        <p>&#x25a0;&emsp;<span></span></p> <!-- lower third ticker -->
+      </div>
+      <div class="clock">
+        <p></p> <!-- clock indicator -->
+      </div>
+    </div>
+    <div class="headingTick">
+      <p class="hdlHd">headline text</p>
+      <p class="hdlDsc">headline description</p>
+    </div>
+    <div class="cmntrTick">
+      <p>Commentators: Person 1, Person 2</p>
+    </div>
+  </body>
+</html>
