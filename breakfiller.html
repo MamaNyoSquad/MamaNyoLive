@@ -188,11 +188,14 @@
     </script>
     <script type="text/javascript">
       // breakfiller executions
-      function editBkflr(newImg, newSubt, newHdl, newDesc) {
-        bkflrImg = newImg;
-        bkflrSubt = newSubt;
-        bkflrHdl = newHdl;
-        bkflrDesc = newDesc;
+      function editBkflr(asgnImg, asgnSubt, asgnHdl, asgnDesc) {
+        if (!asgnImg || !asgnSubt || !asgnHdl || !asgnDesc) {  throw new Error("breakfiller values required. each arg must follow this format: [`..`, `..`, ..]\n\nwhere:\n- args must be invoked as array\n- values must be encapsulated in backticks (``) as js args may be accepted\n\nIMPORTANT REMINDERS:\n- you may press Shift+Enter inside each array arg if you wish to add additional values\n- please ensure all values are equal as they rely on a single point of cycle\n");  }
+        else {
+          bkflrImg = asgnImg;
+          bkflrSubt = asgnSubt;
+          bkflrHdl = asgnHdl;
+          bkflrDesc = asgnDesc;
+        }
       }
     </script>
   </head>
@@ -203,20 +206,20 @@
     <div class="hdlOVL">
       <div>
         <div class="hdlImg">
-          <img src="" alt="">
+          <img src="" alt=""> <!-- breakfiller image -->
         </div>
         <br>
         <div class="hdlTxt">
           <div hdlTitleGrp>
             <div>
-              <p hdlSubt></p>
-              <p hdlTitle></p>
+              <p hdlSubt></p> <!-- breakfiller subtitle -->
+              <p hdlTitle></p> <!-- breakfiller headline -->
             </div>
           </div>
           <br>
           <div hdlDescGrp>
             <div>
-              <p hdlDesc></p>
+              <p hdlDesc></p> <!-- breakfiller description -->
             </div>
           </div>
         </div>
