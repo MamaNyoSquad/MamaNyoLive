@@ -201,34 +201,37 @@
       function howToTickerExec() { console.log("Documentation: https://github.com/MamaNyoSquad/MamaNyoLive/wiki/Usages#lower-thirds"); }
       function openLower() { document.querySelector(".lowerThirds > div").setAttribute("style", `transform: initial;`); }
       function editLower(tckr) { txt = tckr; }
-      function closeLower() { document.querySelector(".lowerThirds > div").setAttribute("style", `transform: translateY(65px);`); }
+      function closeLower() { document.querySelector(".lowerThirds > div").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector('.lowerThirds')).height});`); }
       function openHdl(hdl, dsc) {
-        document.querySelector(".headingTick > div").setAttribute("style", `transform: translateY(168px);`);
+        document.querySelector(".headingTick > div").setAttribute("style", `transform: translateY(170px);`);
         setTimeout(() => {
           document.querySelector(".headingTick > div > .hdlHd").innerText = `${hdl}`;
           document.querySelector(".headingTick > div > .hdlDsc").innerText = `${dsc}`;
           document.querySelector(".headingTick > div").setAttribute("style", `transform: initial;`);
         }, 950);
       }
-      function closeHdl() { document.querySelector(".headingTick > div").setAttribute("style", `transform: translateY(168px);`); }
+      function closeHdl() { document.querySelector(".headingTick > div").setAttribute("style", `transform: translateY(170px);`); }
       function openCmntr(cmntr) {
-        document.querySelector(".cmntrTick > div").setAttribute("style", `transform: translateY(45px);`);
+        document.querySelector(".cmntrTick > div").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector('.cmntrTick')).height});`);
         setTimeout(() => {
           document.querySelector(".cmntrTick > div > p").innerText = `${cmntr}`;
           document.querySelector(".cmntrTick > div").setAttribute("style", `transform: initial;`);
         }, 950);
       }
-      function closeCmntr() { document.querySelector(".cmntrTick > div").setAttribute("style", `transform: translateY(45px);`); }
+      function closeCmntr() { document.querySelector(".cmntrTick > div").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector('.cmntrTick')).height});`); }
       function openLiveFrom(cmntr) {
-        document.querySelector(".liveFromTick > div > p:nth-child(2)").innerText = `${cmntr}`;
-        document.querySelector(".liveFromTick > div").setAttribute("style", `transform: initial;`);
+        document.querySelector(".liveFromTick > div").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector('.liveFromTick')).height});`);
+        setTimeout(() => {
+          document.querySelector(".liveFromTick > div > p:nth-child(2)").innerText = `${cmntr}`;
+          document.querySelector(".liveFromTick > div").setAttribute("style", `transform: initial;`);
+        }, 950);
       }
-      function closeLiveFrom() { document.querySelector(".liveFromTick > div").setAttribute("style", `transform: translateY(43px);`); }
+      function closeLiveFrom() { document.querySelector(".liveFromTick > div").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector('.liveFromTick')).height});`); }
       function closeTick() {
-        document.querySelector(".liveFromTick > div").setAttribute("style", `transform: translateY(43px);`);
-        document.querySelector(".cmntrTick > div").setAttribute("style", `transform: translateY(45px);`);
-        document.querySelector(".headingTick > div").setAttribute("style", `transform: translateY(168px);`);
-        document.querySelector(".lowerThirds > div").setAttribute("style", `transform: translateY(65px);`);
+        document.querySelector(".liveFromTick > div").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector('.liveFromTick')).height});`);
+        document.querySelector(".cmntrTick > div").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector('.cmntrTick')).height});`);
+        document.querySelector(".headingTick > div").setAttribute("style", `transform: translateY(170px);`);
+        document.querySelector(".lowerThirds > div").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector('.lowerThirds')).height});`);
       }
     </script>
   </head>
@@ -236,12 +239,12 @@
     viClock();
     lowerThirdTick();
     howToTickerExec();
-    document.querySelector('.liveFromTick > div').setAttribute('style', `transform: translateY(43px);`)
-    document.querySelector('.cmntrTick > div').setAttribute('style', `transform: translateY(45px);`)
-    document.querySelector('.cmntrTick').setAttribute('style', `bottom: calc(${getComputedStyle(document.querySelector('.lowerThirds')).height} + ${getComputedStyle(document.querySelector('.headingTick')).height});`)
-    document.querySelector('.headingTick > div').setAttribute('style', `transform: translateY(168px);`)
+    document.querySelector('.liveFromTick > div').setAttribute('style', `transform: translateY(${getComputedStyle(document.querySelector('.liveFromTick')).height});`)
+    document.querySelector('.cmntrTick > div').setAttribute('style', `transform: translateY(${getComputedStyle(document.querySelector('.cmntrTick')).height});`)
+    document.querySelector('.cmntrTick').setAttribute('style', `bottom: calc(${getComputedStyle(document.querySelector('.lowerThirds')).height} + 170px);`)
+    document.querySelector('.headingTick > div').setAttribute('style', `transform: translateY(170px);`)
     document.querySelector('.headingTick').setAttribute('style', `bottom: calc(${getComputedStyle(document.querySelector('.lowerThirds')).height});`)
-    document.querySelector('.lowerThirds > div').setAttribute('style', `transform: translateY(65px);`);
+    document.querySelector('.lowerThirds > div').setAttribute('style', `transform: translateY(${getComputedStyle(document.querySelector('.lowerThirds')).height});`);
   }">
     <div class="liveFromTick">
       <div>
