@@ -210,7 +210,10 @@
           document.querySelector(".headingTick > div").setAttribute("style", `transform: initial;`);
         }, 950);
       }
-      function closeHdl() { document.querySelector(".headingTick > div").setAttribute("style", `transform: translateY(170px);`); }
+      function closeHdl() {
+        document.querySelector('.cmntrTick > div').setAttribute('style', `transform: translateY(${getComputedStyle(document.querySelector('.cmntrTick')).height});`)
+        document.querySelector(".headingTick > div").setAttribute("style", `transform: translateY(170px);`);
+      }
       function openCmntr(cmntr) {
         document.querySelector(".cmntrTick > div").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector('.cmntrTick')).height});`);
         setTimeout(() => {
@@ -240,10 +243,10 @@
     lowerThirdTick();
     howToTickerExec();
     document.querySelector('.liveFromTick > div').setAttribute('style', `transform: translateY(${getComputedStyle(document.querySelector('.liveFromTick')).height});`)
+    document.querySelector('.cmntrTick').setAttribute('style', `bottom: calc(${getComputedStyle(document.querySelector('.lowerThirds')).height} + ${getComputedStyle(document.querySelector('.headingTick')).height});`)
     document.querySelector('.cmntrTick > div').setAttribute('style', `transform: translateY(${getComputedStyle(document.querySelector('.cmntrTick')).height});`)
-    document.querySelector('.cmntrTick').setAttribute('style', `bottom: calc(${getComputedStyle(document.querySelector('.lowerThirds')).height} + 170px);`)
-    document.querySelector('.headingTick > div').setAttribute('style', `transform: translateY(170px);`)
     document.querySelector('.headingTick').setAttribute('style', `bottom: calc(${getComputedStyle(document.querySelector('.lowerThirds')).height});`)
+    document.querySelector('.headingTick > div').setAttribute('style', `transform: translateY(170px);`)
     document.querySelector('.lowerThirds > div').setAttribute('style', `transform: translateY(${getComputedStyle(document.querySelector('.lowerThirds')).height});`);
   }">
     <div class="liveFromTick">
