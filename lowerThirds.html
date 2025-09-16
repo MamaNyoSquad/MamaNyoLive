@@ -255,7 +255,7 @@
     lowerThirdTick();
     howToTickerExec();
     document.querySelector('.liveFromTick > div').setAttribute('style', `transform: translateY(${getComputedStyle(document.querySelector('.liveFromTick')).height});`)
-    document.querySelector('.cmntrTick').setAttribute('style', `bottom: calc(${getComputedStyle(document.querySelector('.lowerThirds')).height} + ${getComputedStyle(document.querySelector('.headingTick')).height});`)
+    document.querySelector('.cmntrTick').setAttribute('style', `bottom: calc(${getComputedStyle(document.querySelector('.lowerThirds')).height} + ${getComputedStyle(document.querySelector('.headingTick > div')).height});`)
     document.querySelector('.cmntrTick > div').setAttribute('style', `transform: translateY(${getComputedStyle(document.querySelector('.cmntrTick')).height});`)
     document.querySelector('.headingTick').setAttribute('style', `bottom: calc(${getComputedStyle(document.querySelector('.lowerThirds')).height});`)
     document.querySelector('.headingTick > div').setAttribute('style', `transform: translateY(170px);`)
@@ -269,13 +269,13 @@
     </div>
     <div class="cmntrTick">
       <div>
-        <p></p> <!-- commentator -->
+        <p>commentator name</p> <!-- commentator -->
       </div>
     </div>
     <div class="headingTick">
       <div>
-        <p class="hdlHd"></p> <!-- headline -->
-        <p class="hdlDsc"></p> <!-- description -->
+        <p class="hdlHd">headline</p> <!-- headline -->
+        <p class="hdlDsc">description</p> <!-- description -->
       </div>
     </div>
     <div class="lowerThirds">
