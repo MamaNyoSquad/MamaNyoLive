@@ -30,13 +30,17 @@
         overflow: hidden;
       }
       .lowerThirds {
-        transform: translateY(64.375px);
-        width: 100vw;
-        padding: 0 calc(1.9rem * 3) 0.95rem calc(1.9rem * 3);
-        background-color: #161224;
         font-size: calc(1.9em - calc(1.9em / 4));
         position: absolute;
         bottom: 0;
+        height: max-content;
+        overflow: hidden;
+        z-index: 5000;
+      }
+      .lowerThirds > div {
+        width: 100vw;
+        padding: 0 calc(1.9rem * 7.5) 0.95rem calc(1.9rem * 7.5);
+        background-color: #161224;
         -webkit-transition: 0.95s;
         -moz-transition: 0.95s;
         -o-transition: 0.95s;
@@ -44,10 +48,9 @@
         display: -moz-grid;
         display: -ms-grid;
         display: grid;
-        grid-template-columns: auto 10%;
-        z-index: 5000;
+        grid-template-columns: auto calc(1.9rem * 5.625);
       }
-      .lowerThirds > .textTick {
+      .textTick {
         padding-top: 0.95rem;
         width: 100%;
         overflow: hidden;
@@ -57,7 +60,7 @@
         overflow: hidden !important;
       }
       .textTick > p > span { position: absolute; }
-      .lowerThirds > .clock {
+      .clock {
         width: 100%;
         height: 100%;
         background-color: #06a8ff;
@@ -67,17 +70,19 @@
         font-weight: bold;
       }
       .headingTick {
-        transform: translateY(231.75px);
-        width: 100vw;
-        padding: 0.95rem calc(1.9rem * 3) calc(0.95rem + 64.375px) calc(1.9rem * 3);
-        background-color: #06a8ff;
         position: absolute;
-        bottom: 0;
+        height: max-content;
+        overflow: hidden;
+        z-index: 4500;
+      }
+      .headingTick > div {
+        width: 100vw;
+        padding: 0.95rem calc(1.9rem * 7.5);
+        background-color: #06a8ff;
         -webkit-transition: 0.95s;
         -moz-transition: 0.95s;
         -o-transition: 0.95s;
         transition: 0.95s;
-        z-index: 4500;
       }
       .hdlHd {
         font-size: calc(1.9em * 2);
@@ -86,20 +91,43 @@
       }
       .hdlDsc { font-size: 1.9em; }
       .cmntrTick {
-        transform: translateY(275.875px);
+        position: absolute;
+        height: max-content;
+        overflow: hidden;
+        z-index: 4000;
+      }
+      .cmntrTick > div {
         width: 100vw;
-        padding: calc(0.95rem - calc(0.95rem / 1.5)) calc(1.9rem * 3) calc(calc(0.95rem - calc(0.95rem / 1.5)) + 231.75px) calc(1.9rem * 3);
+        padding: calc(0.95rem - calc(0.95rem / 1.5)) calc(1.9rem * 7.5);
         background-color: #f00;
         font-size: calc(1.9em - calc(1.9em / 4));
         font-weight: bold;
-        position: absolute;
-        bottom: 0;
         -webkit-transition: 0.95s;
         -moz-transition: 0.95s;
         -o-transition: 0.95s;
         transition: 0.95s;
-        z-index: 4000;
       }
+      .liveFromTick {
+        position: absolute;
+        height: max-content;
+        top: calc(1.9rem * 2.5);
+        left: calc(1.9rem * 7.5);
+        overflow: hidden;
+        z-index: 5500;
+      }
+      .liveFromTick > div {
+        font-size: calc(1.9em - calc(1.9em / 4));
+        text-transform: uppercase;
+        display: -moz-grid;
+        display: -ms-grid;
+        display: grid;
+        grid-template-columns: auto auto;
+        -webkit-transition: 0.95s;
+        -moz-transition: 0.95s;
+        -o-transition: 0.95s;
+        transition: 0.95s;
+      }
+      .liveFromTick > div * { padding: 0.25rem 0.75rem calc(0.25rem - calc(1.9rem * 0.1875)) 0.75rem; }
     </style>
     <script type="text/javascript">
       // js
@@ -151,16 +179,15 @@
         let idx = 0;
         setInterval(() => {
           let curTxt = txt[idx];
-          // document.querySelector(".lowerThirds > div > p > span").innerText = curTxt;
           setTimeout(() => {
-            document.querySelector(".lowerThirds > div > p > span").setAttribute("style", "-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: translateY(calc(-1.9rem + calc(-1.9rem / 6)));");
+            document.querySelector(".textTick > p > span").setAttribute("style", `-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: translateY(-${getComputedStyle(document.querySelector(".textTick > p > span")).height});`);
             setTimeout(() => {
-              document.querySelector(".lowerThirds > div > p > span").setAttribute("style", "-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: translateY(calc(-1.9rem + calc(-1.9rem / 6)));");
+              document.querySelector(".textTick > p > span").setAttribute("style", `-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: translateY(-${getComputedStyle(document.querySelector(".textTick > p > span")).height});`);
               setTimeout(() => {
-                document.querySelector(".lowerThirds > div > p > span").innerHTML = curTxt;
-                document.querySelector(".lowerThirds > div > p > span").setAttribute("style", "-webkit-transition: unset; -moz-transition: unset; -o-transition: unset; transition: unset; transform: translateY(calc(1.9rem + calc(1.9rem / 6)));");
+                document.querySelector(".textTick > p > span").innerHTML = curTxt;
+                document.querySelector(".textTick > p > span").setAttribute("style", `-webkit-transition: unset; -moz-transition: unset; -o-transition: unset; transition: unset; transform: translateY(${getComputedStyle(document.querySelector(".textTick > p > span")).height});`);
                 setTimeout(() => {
-                  document.querySelector(".lowerThirds > div > p > span").setAttribute("style", "-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: initial;")
+                  document.querySelector(".textTick > p > span").setAttribute("style", "-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: initial;")
                 }, 950);
               }, 0);
             }, 950);
@@ -171,63 +198,37 @@
     </script>
     <script type="text/javascript">
       // ticker executions
-      // function howToTickerExec() { console.log("available commands:\n\n- openLower()\n- editLower([`..`, `..`, ..])\n- openHdl(\"headline\", \"description\")\n- closeHdl()\n- openCmntr(\"commentator\")\n- closeCmntr()\n- closeTick()"); }
       function howToTickerExec() { console.log("Documentation: https://github.com/MamaNyoSquad/MamaNyoLive/wiki/Usages#lower-thirds"); }
-      function openLower() {
-        document.querySelector(".cmntrTick").setAttribute("style", `transform: translateY(calc(${getComputedStyle(document.querySelector(".cmntrTick")).height} - ${getComputedStyle(document.querySelector(".lowerThirds")).height}));`);
-        document.querySelector(".headingTick").setAttribute("style", `transform: translateY(calc(${getComputedStyle(document.querySelector(".headingTick")).height} - ${getComputedStyle(document.querySelector(".lowerThirds")).height}));`);
-        document.querySelector(".lowerThirds").setAttribute("style", `transform: initial;`);
-      }
-      // function closeLower() { document.querySelector(".lowerThirds").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector(".lowerThirds")).height});`); }
-      function editLower(tckr) {
-        // changes to take effect on next index, will reset to initial upon reload
-        // and they have to be encapsulated in backticks `` as they will render as innerHTML
-        txt = tckr;
-      }
+      function openLower() { document.querySelector(".lowerThirds > div").setAttribute("style", `transform: initial;`); }
+      function editLower(tckr) { txt = tckr; }
+      function closeLower() { document.querySelector(".lowerThirds > div").setAttribute("style", `transform: translateY(65px);`); }
       function openHdl(hdl, dsc) {
-        if (document.querySelector(".lowerThirds").getBoundingClientRect().y == 970) {
-          document.querySelector(".headingTick > .hdlHd").innerText = `${hdl}`;
-          document.querySelector(".headingTick > .hdlDsc").innerText = `${dsc}`;
-          document.querySelector(".cmntrTick").setAttribute("style", `transform: translateY(calc(${getComputedStyle(document.querySelector(".cmntrTick")).height} - ${getComputedStyle(document.querySelector(".headingTick")).height}));`);
-          document.querySelector(".headingTick").setAttribute("style", `transform: initial;`);
-          document.querySelector(".lowerThirds").setAttribute("style", `transform: initial;`);
-        } else {
-          document.querySelector(".cmntrTick").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector(".cmntrTick")).height});`);
-          document.querySelector(".headingTick").setAttribute("style", `transform: translateY(calc(${getComputedStyle(document.querySelector(".headingTick")).height} - ${getComputedStyle(document.querySelector(".lowerThirds")).height}));`);
-          setTimeout(() => {
-            document.querySelector(".headingTick > .hdlHd").innerText = `${hdl}`;
-            document.querySelector(".headingTick > .hdlDsc").innerText = `${dsc}`;
-            document.querySelector(".cmntrTick").setAttribute("style", `transform: translateY(calc(${getComputedStyle(document.querySelector(".cmntrTick")).height} - ${getComputedStyle(document.querySelector(".headingTick")).height}));`);
-            document.querySelector(".headingTick").setAttribute("style", `transform: initial;`);
-            document.querySelector(".lowerThirds").setAttribute("style", `transform: initial;`);
-          }, 950);
-        }
+        document.querySelector(".headingTick > div").setAttribute("style", `transform: translateY(168px);`);
+        setTimeout(() => {
+          document.querySelector(".headingTick > div > .hdlHd").innerText = `${hdl}`;
+          document.querySelector(".headingTick > div > .hdlDsc").innerText = `${dsc}`;
+          document.querySelector(".headingTick > div").setAttribute("style", `transform: initial;`);
+        }, 950);
       }
-      function closeHdl() {
-        document.querySelector(".cmntrTick").setAttribute("style", `transform: translateY(calc(${getComputedStyle(document.querySelector(".cmntrTick")).height} - ${getComputedStyle(document.querySelector(".lowerThirds")).height}));`);
-        document.querySelector(".headingTick").setAttribute("style", `transform: translateY(calc(${getComputedStyle(document.querySelector(".headingTick")).height} - ${getComputedStyle(document.querySelector(".lowerThirds")).height}));`);
-      }
+      function closeHdl() { document.querySelector(".headingTick > div").setAttribute("style", `transform: translateY(168px);`); }
       function openCmntr(cmntr) {
-        if (document.querySelector(".lowerThirds").getBoundingClientRect().y == 970 || document.querySelector(".headingTick").getBoundingClientRect().y == 905.625) {
-          document.querySelector(".cmntrTick > p").innerText = `${cmntr}`;
-          document.querySelector(".cmntrTick").setAttribute("style", `transform: initial;`);
-          document.querySelector(".headingTick").setAttribute("style", `transform: initial;`);
-          document.querySelector(".lowerThirds").setAttribute("style", `transform: initial;`);
-        } else {
-          document.querySelector(".cmntrTick").setAttribute("style", `transform: translateY(calc(${getComputedStyle(document.querySelector(".cmntrTick")).height} - ${getComputedStyle(document.querySelector(".headingTick")).height}));`);
-          setTimeout(() => {
-            document.querySelector(".cmntrTick > p").innerText = `${cmntr}`;
-            document.querySelector(".cmntrTick").setAttribute("style", `transform: initial;`);
-            document.querySelector(".headingTick").setAttribute("style", `transform: initial;`);
-            document.querySelector(".lowerThirds").setAttribute("style", `transform: initial;`);
-          }, 950);
-        }
+        document.querySelector(".cmntrTick > div").setAttribute("style", `transform: translateY(45px);`);
+        setTimeout(() => {
+          document.querySelector(".cmntrTick > div > p").innerText = `${cmntr}`;
+          document.querySelector(".cmntrTick > div").setAttribute("style", `transform: initial;`);
+        }, 950);
       }
-      function closeCmntr() { document.querySelector(".cmntrTick").setAttribute("style", `transform: translateY(calc(${getComputedStyle(document.querySelector(".cmntrTick")).height} - ${getComputedStyle(document.querySelector(".headingTick")).height}));`); }
+      function closeCmntr() { document.querySelector(".cmntrTick > div").setAttribute("style", `transform: translateY(45px);`); }
+      function openLiveFrom(cmntr) {
+        document.querySelector(".liveFromTick > div > p:nth-child(2)").innerText = `${cmntr}`;
+        document.querySelector(".liveFromTick > div").setAttribute("style", `transform: initial;`);
+      }
+      function closeLiveFrom() { document.querySelector(".liveFromTick > div").setAttribute("style", `transform: translateY(43px);`); }
       function closeTick() {
-        document.querySelector(".cmntrTick").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector(".cmntrTick")).height});`);
-        document.querySelector(".headingTick").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector(".headingTick")).height});`);
-        document.querySelector(".lowerThirds").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector(".lowerThirds")).height});`);
+        document.querySelector(".liveFromTick > div").setAttribute("style", `transform: translateY(43px);`);
+        document.querySelector(".cmntrTick > div").setAttribute("style", `transform: translateY(45px);`);
+        document.querySelector(".headingTick > div").setAttribute("style", `transform: translateY(168px);`);
+        document.querySelector(".lowerThirds > div").setAttribute("style", `transform: translateY(65px);`);
       }
     </script>
   </head>
@@ -235,21 +236,39 @@
     viClock();
     lowerThirdTick();
     howToTickerExec();
+    document.querySelector('.liveFromTick > div').setAttribute('style', `transform: translateY(43px);`)
+    document.querySelector('.cmntrTick > div').setAttribute('style', `transform: translateY(45px);`)
+    document.querySelector('.cmntrTick').setAttribute('style', `bottom: calc(${getComputedStyle(document.querySelector('.lowerThirds')).height} + ${getComputedStyle(document.querySelector('.headingTick')).height});`)
+    document.querySelector('.headingTick > div').setAttribute('style', `transform: translateY(168px);`)
+    document.querySelector('.headingTick').setAttribute('style', `bottom: calc(${getComputedStyle(document.querySelector('.lowerThirds')).height});`)
+    document.querySelector('.lowerThirds > div').setAttribute('style', `transform: translateY(65px);`);
   }">
-    <div class="lowerThirds">
-      <div class="textTick">
-        <p>&#x25a0;&emsp;<span></span></p> <!-- lower third ticker -->
+    <div class="liveFromTick">
+      <div>
+        <p style="background-color: #f00; font-weight: bold;">&bull; LIVE</p>
+        <p style="background-color: #16122480; border-bottom: calc(1.9rem * 0.1875) #f00 solid;">place name</p>
       </div>
-      <div class="clock">
-        <p></p> <!-- clock indicator -->
+    </div>
+    <div class="cmntrTick">
+      <div>
+        <p>Commentators: Person 1, Person 2</p>
       </div>
     </div>
     <div class="headingTick">
-      <p class="hdlHd">headline text</p>
-      <p class="hdlDsc">headline description</p>
+      <div>
+        <p class="hdlHd">headline text</p>
+        <p class="hdlDsc">headline description</p>
+      </div>
     </div>
-    <div class="cmntrTick">
-      <p>Commentators: Person 1, Person 2</p>
+    <div class="lowerThirds">
+      <div>
+        <div class="textTick">
+          <p>&#x25fc;&emsp;<span></span></p> <!-- lower third ticker -->
+        </div>
+        <div class="clock">
+          <p></p> <!-- clock indicator -->
+        </div>
+      </div>
     </div>
   </body>
 </html>
