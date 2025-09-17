@@ -201,17 +201,17 @@
       function howToTickerExec() { console.log("Documentation: https://github.com/MamaNyoSquad/MamaNyoLive/wiki/Usages#lower-thirds"); }
       function openLower() { document.querySelector(".lowerThirds > div").setAttribute("style", `transform: initial;`); }
       function editLower(tckr) {
-        if (!tckr) { throw new Error("ticker values required. they must follow this format: [`..`, `..`, ..]\n\nwhere:\n- arg must be invoked as array\n- values must be encapsulated in backticks (``) as js args may be accepted\n\nPRO TIP: you may press Shift+Enter when inside an array invocation if you wish to provide multiple values.\n"); }
+        if (!tckr) { throw new Error("ticker values required. they must follow this format: [`..`, `..`, ..]\n\nwhere:\n- arg must be invoked as array\n- values must be encapsulated in backticks (``) as html or js args may be accepted\n\nPRO TIP: you may press Shift+Enter when inside an array invocation if you wish to provide multiple values.\n"); }
         else { txt = tckr; }
       }
       function closeLower() { document.querySelector(".lowerThirds > div").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector('.lowerThirds')).height});`); }
       function openHdl(hdl, dsc) {
-        if (!hdl || !dsc) { throw new Error("headline and description required. each must be encapsulated in double-quotes (\"\"\).\n"); }
+        if (!hdl || !dsc) { throw new Error("headline and description required. each must be encapsulated in backticks (``) as html or js args may be accepted.\n"); }
         else {
           document.querySelector(".headingTick > div").setAttribute("style", `transform: translateY(170px);`);
           setTimeout(() => {
-            document.querySelector(".headingTick > div > .hdlHd").innerText = `${hdl}`;
-            document.querySelector(".headingTick > div > .hdlDsc").innerText = `${dsc}`;
+            document.querySelector(".hdlHd").innerHTML = `${hdl}`;
+            document.querySelector(".hdlDsc").innerHTML = `${dsc}`;
             document.querySelector(".headingTick > div").setAttribute("style", `transform: initial;`);
           }, 950);
         }
@@ -220,23 +220,36 @@
         document.querySelector('.cmntrTick > div').setAttribute('style', `transform: translateY(${getComputedStyle(document.querySelector('.cmntrTick')).height});`)
         document.querySelector(".headingTick > div").setAttribute("style", `transform: translateY(170px);`);
       }
+      function editHdlDesc(dsc) {
+        if (!dsc) { throw new Error("description required. must be encapsulated in backticks (``) as html or js args may be accepted.\n"); }
+        else {
+          document.querySelector(".hdlDsc").setAttribute("style", `-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: translateY(-${getComputedStyle(document.querySelector(".headingTick > div > div")).height});`);
+          setTimeout(() => {
+            document.querySelector(".hdlDsc").innerHTML = `${dsc}`;
+            document.querySelector(".hdlDsc").setAttribute("style", `-webkit-transition: unset; -moz-transition: unset; -o-transition: unset; transition: unset; transform: translateY(${getComputedStyle(document.querySelector(".headingTick > div > div")).height});`);
+            setTimeout(() => {
+              document.querySelector(".hdlDsc").setAttribute("style", "-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: initial;")
+            }, 950);
+          }, 950);
+        }
+      }
       function openCmntr(cmntr) {
-        if (!cmntr) { throw new Error("commentator name required. must be encapsulated in double-quotes (\"\"\).\n"); }
+        if (!cmntr) { throw new Error("commentator name required. must be encapsulated in backticks (``) as html or js args may be accepted.\n"); }
         else {
           document.querySelector(".cmntrTick > div").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector('.cmntrTick')).height});`);
           setTimeout(() => {
-            document.querySelector(".cmntrTick > div > p").innerText = `${cmntr}`;
+            document.querySelector(".cmntrTick > div > p").innerHTML = `${cmntr}`;
             document.querySelector(".cmntrTick > div").setAttribute("style", `transform: initial;`);
           }, 950);
         }
       }
       function closeCmntr() { document.querySelector(".cmntrTick > div").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector('.cmntrTick')).height});`); }
       function openLiveFrom(lveFrm) {
-        if (!lveFrm) { throw new Error("broadcast location required. must be encapsulated in double-quotes (\"\"\).\n"); }
+        if (!lveFrm) { throw new Error("broadcast location required. must be encapsulated in backticks (``) as html or js args may be accepted.\n"); }
         else {
           document.querySelector(".liveFromTick > div").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector('.liveFromTick')).height});`);
           setTimeout(() => {
-            document.querySelector(".liveFromTick > div > p:nth-child(2)").innerText = `${lveFrm}`;
+            document.querySelector(".liveFromTick > div > p:nth-child(2)").innerHTML = `${lveFrm}`;
             document.querySelector(".liveFromTick > div").setAttribute("style", `transform: initial;`);
           }, 950);
         }
@@ -275,7 +288,9 @@
     <div class="headingTick">
       <div>
         <p class="hdlHd">headline</p> <!-- headline -->
-        <p class="hdlDsc">description</p> <!-- description -->
+        <div style="overflow: hidden;">
+          <p class="hdlDsc">description</p> <!-- description -->
+        </div>
       </div>
     </div>
     <div class="lowerThirds">
