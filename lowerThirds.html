@@ -9,6 +9,7 @@
     <style type="text/css" media="all">
       /* css */
       @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
       html, body {
         height: 100%;
         overflow-x: hidden;
@@ -22,7 +23,7 @@
         padding: 0;
       }
       body {
-        font-family: "Poppins", sans-serif;
+        font-family: "Poppins", "Noto Sans JP", sans-serif;
         color: #fff;
         width: 100vw;
         height: 100vh;
@@ -128,6 +129,27 @@
         transition: 0.95s;
       }
       .liveFromTick > div * { padding: 0.25rem 0.75rem calc(0.25rem - calc(1.9rem * 0.1875)) 0.75rem; }
+      .programStat {
+        position: absolute;
+        height: max-content;
+        top: calc(1.9rem * 2.5);
+        right: calc(1.9rem * 7.5);
+        overflow: hidden;
+        z-index: 6000;
+      }
+      .programStat > div {
+        text-align: right;
+        font-size: calc(1.9em - calc(1.9em / 4));
+        text-transform: uppercase;
+        background-color: #161224a0;
+        padding: 0.25rem 0.75rem calc(0.25rem - calc(1.9rem * 0.1875)) 0.75rem;
+        border-bottom: calc(1.9rem * 0.1875) #06a8ff solid;
+        -webkit-transition: 0.95s;
+        -moz-transition: 0.95s;
+        -o-transition: 0.95s;
+        transition: 0.95s;
+      }
+      .programStat > div > * { font-weight: bold; }
     </style>
     <script type="text/javascript">
       // js
@@ -233,12 +255,12 @@
           }, 950);
         }
       }
-      function openCmntr(cmntr) {
-        if (!cmntr) { throw new Error("commentator name required. must be encapsulated in backticks (``) as html or js args may be accepted.\n"); }
+      function openCmntr(cmntr, role) {
+        if (!cmntr || !role) { throw new Error("commentator name and role required. must be encapsulated in backticks (``) as html or js args may be accepted.\n"); }
         else {
           document.querySelector(".cmntrTick > div").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector('.cmntrTick')).height});`);
           setTimeout(() => {
-            document.querySelector(".cmntrTick > div > p").innerHTML = `${cmntr}`;
+            document.querySelector(".cmntrTick > div > p").innerHTML = `${cmntr}&ensp;&bull;&ensp;${role}`;
             document.querySelector(".cmntrTick > div").setAttribute("style", `transform: initial;`);
           }, 950);
         }
@@ -260,7 +282,19 @@
         document.querySelector(".cmntrTick > div").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector('.cmntrTick')).height});`);
         document.querySelector(".headingTick > div").setAttribute("style", `transform: translateY(170px);`);
         document.querySelector(".lowerThirds > div").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector('.lowerThirds')).height});`);
+        document.querySelector(".programStat > div").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector('.programStat')).height});`);
       }
+      function openProgStatus(stat) {
+        if (!stat) { throw new Error("program status required. must be encapsulated in backticks (``) as html or js args may be accepted.\n"); }
+        else {
+          document.querySelector(".programStat > div").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector('.programStat')).height});`);
+          setTimeout(() => {
+            document.querySelector(".programStat > div > p").innerHTML = `${stat}`;
+            document.querySelector(".programStat > div").setAttribute("style", `transform: initial;`);
+          }, 950);
+        }
+      }
+      function closeProgStatus() { document.querySelector(".programStat > div").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector('.programStat')).height});`); }
     </script>
   </head>
   <body onload="{
@@ -273,7 +307,13 @@
     document.querySelector('.headingTick').setAttribute('style', `bottom: calc(${getComputedStyle(document.querySelector('.lowerThirds')).height});`)
     document.querySelector('.headingTick > div').setAttribute('style', `transform: translateY(170px);`)
     document.querySelector('.lowerThirds > div').setAttribute('style', `transform: translateY(${getComputedStyle(document.querySelector('.lowerThirds')).height});`);
+    document.querySelector('.programStat > div').setAttribute('style', `transform: translateY(${getComputedStyle(document.querySelector('.programStat')).height});`);
   }">
+    <div class="programStat">
+      <div>
+        <p>program status</p>
+      </div>
+    </div>
     <div class="liveFromTick">
       <div>
         <p style="background-color: #f00; font-weight: bold;">&bull; LIVE</p>
