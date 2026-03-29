@@ -26,7 +26,7 @@
       }
       body {
         font-family: "Poppins", "Noto Sans JP", sans-serif;
-        color: #fff;
+        color: #ffffff;
         background-color: #161224;
         background-image: url("https://mamanyosquad.github.io/assets/images/background/nyoBG.png");
         background-size: cover;
@@ -161,25 +161,37 @@
             curBkflrHdl = bkflrHdl[idx],
             curBkflrDesc = bkflrDesc[idx];
           setTimeout(() => {
-            document.querySelector(".hdlImg > img").setAttribute("style", `-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: translateY(-${getComputedStyle(document.querySelector(".hdlImg > img")).height});`);
-            document.querySelector(".hdlTxt > div[hdlTitleGrp] > div").setAttribute("style", `-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: translateY(-${getComputedStyle(document.querySelector(".hdlTxt > div[hdlTitleGrp]")).height});`);
-            document.querySelector(".hdlTxt > div[hdlDescGrp] > div").setAttribute("style", `-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: translateY(-${getComputedStyle(document.querySelector(".hdlTxt > div[hdlDescGrp]")).height});`);
+            document.querySelector(".hdlImg > img").style.transition = "0.95s";
+            document.querySelector(".hdlImg > img").style.transform = `translateY(-${getComputedStyle(document.querySelector(".hdlImg > img")).height})`;
+            document.querySelector(".hdlTxt > div[hdlTitleGrp] > div").style.transition = "0.95s";
+            document.querySelector(".hdlTxt > div[hdlTitleGrp] > div").style.transform = `translateY(-${getComputedStyle(document.querySelector(".hdlTxt > div[hdlTitleGrp]")).height})`;
+            document.querySelector(".hdlTxt > div[hdlDescGrp] > div").style.transition = "0.95s";
+            document.querySelector(".hdlTxt > div[hdlDescGrp] > div").style.transform = `translateY(-${getComputedStyle(document.querySelector(".hdlTxt > div[hdlDescGrp]")).height})`;
             setTimeout(() => {
-              document.querySelector(".hdlImg > img").setAttribute("style", `-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: translateY(-${getComputedStyle(document.querySelector(".hdlImg > img")).height});`);
-              document.querySelector(".hdlTxt > div[hdlTitleGrp] > div").setAttribute("style", `-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: translateY(-${getComputedStyle(document.querySelector(".hdlTxt > div[hdlTitleGrp]")).height});`);
-              document.querySelector(".hdlTxt > div[hdlDescGrp] > div").setAttribute("style", `-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: translateY(-${getComputedStyle(document.querySelector(".hdlTxt > div[hdlDescGrp]")).height});`);
+              document.querySelector(".hdlImg > img").style.transition = "0.95s";
+              document.querySelector(".hdlImg > img").style.transform = `translateY(-${getComputedStyle(document.querySelector(".hdlImg > img")).height})`;
+              document.querySelector(".hdlTxt > div[hdlTitleGrp] > div").style.transition = "0.95s";
+              document.querySelector(".hdlTxt > div[hdlTitleGrp] > div").style.transform = `translateY(-${getComputedStyle(document.querySelector(".hdlTxt > div[hdlTitleGrp]")).height})`;
+              document.querySelector(".hdlTxt > div[hdlDescGrp] > div").style.transition = "0.95s";
+              document.querySelector(".hdlTxt > div[hdlDescGrp] > div").style.transform = `translateY(-${getComputedStyle(document.querySelector(".hdlTxt > div[hdlDescGrp]")).height})`;
               setTimeout(() => {
-                document.querySelector(".hdlImg > img").setAttribute("src", curBkflrImg);
+                document.querySelector(".hdlImg > img").src = curBkflrImg;
                 document.querySelector(".hdlTxt > div[hdlTitleGrp] > div > p[hdlSubt]").innerHTML = curBkflrSubt;
                 document.querySelector(".hdlTxt > div[hdlTitleGrp] > div > p[hdlTitle]").innerHTML = curBkflrHdl;
                 document.querySelector(".hdlTxt > div[hdlDescGrp] > div > p[hdlDesc]").innerHTML = curBkflrDesc;
-                document.querySelector(".hdlImg > img").setAttribute("style", `-webkit-transition: unset; -moz-transition: unset; -o-transition: unset; transition: unset; transform: translateY(${getComputedStyle(document.querySelector(".hdlImg > img")).height});`);
-                document.querySelector(".hdlTxt > div[hdlTitleGrp] > div").setAttribute("style", `-webkit-transition: unset; -moz-transition: unset; -o-transition: unset; transition: unset; transform: translateY(${getComputedStyle(document.querySelector(".hdlTxt > div[hdlTitleGrp]")).height});`);
-                document.querySelector(".hdlTxt > div[hdlDescGrp] > div").setAttribute("style", `-webkit-transition: unset; -moz-transition: unset; -o-transition: unset; transition: unset; transform: translateY(${getComputedStyle(document.querySelector(".hdlTxt > div[hdlDescGrp]")).height});`);
+                document.querySelector(".hdlImg > img").style.transition = "unset";
+                document.querySelector(".hdlImg > img").style.transform = `translateY(${getComputedStyle(document.querySelector(".hdlImg > img")).height})`;
+                document.querySelector(".hdlTxt > div[hdlTitleGrp] > div").style.transition = "unset";
+                document.querySelector(".hdlTxt > div[hdlTitleGrp] > div").style.transform = `translateY(${getComputedStyle(document.querySelector(".hdlTxt > div[hdlTitleGrp]")).height})`;
+                document.querySelector(".hdlTxt > div[hdlDescGrp] > div").style.transition = "unset";
+                document.querySelector(".hdlTxt > div[hdlDescGrp] > div").style.transform = `translateY(${getComputedStyle(document.querySelector(".hdlTxt > div[hdlDescGrp]")).height})`;
                 setTimeout(() => {
-                  document.querySelector(".hdlImg > img").setAttribute("style", `-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: initial;`);
-                  document.querySelector(".hdlTxt > div[hdlTitleGrp] > div").setAttribute("style", `-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: initial;`);
-                  document.querySelector(".hdlTxt > div[hdlDescGrp] > div").setAttribute("style", `-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: initial;`);
+                  document.querySelector(".hdlImg > img").style.transition = "0.95s";
+                  document.querySelector(".hdlImg > img").style.transform = `initial`;
+                  document.querySelector(".hdlTxt > div[hdlTitleGrp] > div").style.transition = "0.95s";
+                  document.querySelector(".hdlTxt > div[hdlTitleGrp] > div").style.transform = `initial`;
+                  document.querySelector(".hdlTxt > div[hdlDescGrp] > div").style.transition = "0.95s";
+                  document.querySelector(".hdlTxt > div[hdlDescGrp] > div").style.transform = `initial`;
                 }, 950);
               }, 0);
             }, 950);

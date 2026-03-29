@@ -24,7 +24,7 @@
       }
       body {
         font-family: "Poppins", "Noto Sans JP", sans-serif;
-        color: #fff;
+        color: #ffffff;
         width: 100vw;
         height: 100vh;
         position: absolute;
@@ -37,6 +37,10 @@
         height: max-content;
         overflow: hidden;
         z-index: 5000;
+        -webkit-transition: 0.95s;
+        -moz-transition: 0.95s;
+        -o-transition: 0.95s;
+        transition: 0.95s;
       }
       .lowerThirds > div {
         width: 100vw;
@@ -75,6 +79,10 @@
         height: max-content;
         overflow: hidden;
         z-index: 4500;
+        -webkit-transition: 0.95s;
+        -moz-transition: 0.95s;
+        -o-transition: 0.95s;
+        transition: 0.95s;
       }
       .headingTick > div {
         width: 100vw;
@@ -96,11 +104,15 @@
         height: max-content;
         overflow: hidden;
         z-index: 4000;
+        -webkit-transition: 0.95s;
+        -moz-transition: 0.95s;
+        -o-transition: 0.95s;
+        transition: 0.95s;
       }
       .cmntrTick > div {
         width: 100vw;
         padding: calc(0.95rem - calc(0.95rem / 1.5)) calc(1.9rem * 7.5);
-        background-color: #f00;
+        background-color: #ff0000;
         font-size: calc(1.9em - calc(1.9em / 4));
         font-weight: bold;
         -webkit-transition: 0.95s;
@@ -115,6 +127,10 @@
         left: calc(1.9rem * 7.5);
         overflow: hidden;
         z-index: 5500;
+        -webkit-transition: 0.95s;
+        -moz-transition: 0.95s;
+        -o-transition: 0.95s;
+        transition: 0.95s;
       }
       .liveFromTick > div {
         font-size: calc(1.9em - calc(1.9em / 4));
@@ -136,6 +152,10 @@
         right: calc(1.9rem * 7.5);
         overflow: hidden;
         z-index: 6000;
+        -webkit-transition: 0.95s;
+        -moz-transition: 0.95s;
+        -o-transition: 0.95s;
+        transition: 0.95s;
       }
       .programStat > div {
         text-align: right;
@@ -154,7 +174,7 @@
     <script type="text/javascript">
       // js
       let txt = [
-        `#MamaNyoSquad&ensp;<b><span style="color: #f00;">&bull;</span> LIVE</b>&emsp;|&emsp;Simulcasting with DOAXVV Japanese`,
+        `#MamaNyoSquad&ensp;<b><span style="color: #ff0000;">&bull;</span> LIVE</b>&emsp;|&emsp;Simulcasting with DOAXVV Japanese`,
         `${daysOfTheWeek(new Date(new Date().getTime() + diffOffs(11)).getDay())}, ${new Date(new Date().getTime() + diffOffs(11)).getDate()} ${monthNum(new Date(new Date().getTime() + diffOffs(11)).getMonth())} ${new Date(new Date().getTime() + diffOffs(11)).getFullYear()}`,
         `Website: https://mamanyosquad.github.io`
       ]
@@ -202,14 +222,18 @@
         setInterval(() => {
           let curTxt = txt[idx];
           setTimeout(() => {
-            document.querySelector(".textTick > p > span").setAttribute("style", `-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: translateY(-${getComputedStyle(document.querySelector(".textTick > p > span")).height});`);
+            document.querySelector(".textTick > p span").style.transition = "0.95s";
+            document.querySelector(".textTick > p span").style.transform = `translateY(-${getComputedStyle(document.querySelector(".textTick > p > span")).height})`;
             setTimeout(() => {
-              document.querySelector(".textTick > p > span").setAttribute("style", `-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: translateY(-${getComputedStyle(document.querySelector(".textTick > p > span")).height});`);
+              document.querySelector(".textTick > p span").style.transition = "0.95s";
+              document.querySelector(".textTick > p span").style.transform = `translateY(-${getComputedStyle(document.querySelector(".textTick > p > span")).height})`;
               setTimeout(() => {
                 document.querySelector(".textTick > p > span").innerHTML = curTxt;
-                document.querySelector(".textTick > p > span").setAttribute("style", `-webkit-transition: unset; -moz-transition: unset; -o-transition: unset; transition: unset; transform: translateY(${getComputedStyle(document.querySelector(".textTick > p > span")).height});`);
+                document.querySelector(".textTick > p span").style.transition = "unset";
+                document.querySelector(".textTick > p span").style.transform = `translateY(${getComputedStyle(document.querySelector(".textTick > p > span")).height})`;
                 setTimeout(() => {
-                  document.querySelector(".textTick > p > span").setAttribute("style", "-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: initial;")
+                  document.querySelector(".textTick > p span").style.transition = "0.95s";
+                  document.querySelector(".textTick > p span").style.transform = `initial`;
                 }, 950);
               }, 0);
             }, 950);
@@ -221,36 +245,39 @@
     <script type="text/javascript">
       // ticker executions
       function howToTickerExec() { console.log("Documentation: https://github.com/MamaNyoSquad/MamaNyoLive/wiki/Usages#lower-thirds"); }
-      function openLower() { document.querySelector(".lowerThirds > div").setAttribute("style", `transform: initial;`); }
+      function openLower() { document.querySelector(".lowerThirds > div").style.transform = "initial"; }
       function editLower(tckr) {
         if (!tckr) { throw new Error("ticker values required. they must follow this format: [`..`, `..`, ..]\n\nwhere:\n- arg must be invoked as array\n- values must be encapsulated in backticks (``) as html or js args may be accepted\n\nPRO TIP: you may press Shift+Enter when inside an array invocation if you wish to provide multiple values.\n"); }
         else { txt = tckr; }
       }
-      function closeLower() { document.querySelector(".lowerThirds > div").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector('.lowerThirds')).height});`); }
+      function closeLower() { document.querySelector(".lowerThirds > div").style.transform = `translateY(${getComputedStyle(document.querySelector('.lowerThirds')).height})`; }
       function openHdl(hdl, dsc) {
         if (!hdl || !dsc) { throw new Error("headline and description required. each must be encapsulated in backticks (``) as html or js args may be accepted.\n"); }
         else {
-          document.querySelector(".headingTick > div").setAttribute("style", `transform: translateY(170px);`);
+          document.querySelector(".headingTick > div").style.transform = "translateY(170px)";
           setTimeout(() => {
             document.querySelector(".hdlHd").innerHTML = `${hdl}`;
             document.querySelector(".hdlDsc").innerHTML = `${dsc}`;
-            document.querySelector(".headingTick > div").setAttribute("style", `transform: initial;`);
+            document.querySelector(".headingTick > div").style.transform = "initial";
           }, 950);
         }
       }
       function closeHdl() {
-        document.querySelector('.cmntrTick > div').setAttribute('style', `transform: translateY(${getComputedStyle(document.querySelector('.cmntrTick')).height});`)
-        document.querySelector(".headingTick > div").setAttribute("style", `transform: translateY(170px);`);
+        document.querySelector('.cmntrTick > div').style.transform = `translateY(${getComputedStyle(document.querySelector('.cmntrTick')).height})`;
+        document.querySelector(".headingTick > div").style.transform = `translateY(170px)`;
       }
       function editHdlDesc(dsc) {
         if (!dsc) { throw new Error("description required. must be encapsulated in backticks (``) as html or js args may be accepted.\n"); }
         else {
-          document.querySelector(".hdlDsc").setAttribute("style", `-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: translateY(-${getComputedStyle(document.querySelector(".headingTick > div > div")).height});`);
+          document.querySelector(".hdlDsc").style.transition = "0.95s";
+          document.querySelector(".hdlDsc").style.transform = `translateY(-${getComputedStyle(document.querySelector(".headingTick > div > div")).height})`;
           setTimeout(() => {
             document.querySelector(".hdlDsc").innerHTML = `${dsc}`;
-            document.querySelector(".hdlDsc").setAttribute("style", `-webkit-transition: unset; -moz-transition: unset; -o-transition: unset; transition: unset; transform: translateY(${getComputedStyle(document.querySelector(".headingTick > div > div")).height});`);
+            document.querySelector(".hdlDsc").style.transition = "unset";
+            document.querySelector(".hdlDsc").style.transform = `translateY(${getComputedStyle(document.querySelector(".headingTick > div > div")).height})`;
             setTimeout(() => {
-              document.querySelector(".hdlDsc").setAttribute("style", "-webkit-transition: 0.95s; -moz-transition: 0.95s; -o-transition: 0.95s; transition: 0.95s; transform: initial;")
+              document.querySelector(".hdlDsc").style.transition = "0.95s";
+              document.querySelector(".hdlDsc").style.transform = `initial`;
             }, 950);
           }, 950);
         }
@@ -258,56 +285,61 @@
       function openCmntr(cmntr, role) {
         if (!cmntr || !role) { throw new Error("commentator name and role required. must be encapsulated in backticks (``) as html or js args may be accepted.\n"); }
         else {
-          document.querySelector(".cmntrTick > div").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector('.cmntrTick')).height});`);
+          document.querySelector(".cmntrTick > div").style.transform = `translateY(${getComputedStyle(document.querySelector('.cmntrTick')).height})`;
           setTimeout(() => {
             document.querySelector(".cmntrTick > div > p").innerHTML = `${cmntr}&ensp;&bull;&ensp;${role}`;
-            document.querySelector(".cmntrTick > div").setAttribute("style", `transform: initial;`);
+            document.querySelector(".cmntrTick > div").style.transform = `initial`;
           }, 950);
         }
       }
-      function closeCmntr() { document.querySelector(".cmntrTick > div").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector('.cmntrTick')).height});`); }
+      function closeCmntr() { document.querySelector(".cmntrTick > div").style.transform = `translateY(${getComputedStyle(document.querySelector('.cmntrTick')).height})`; }
       function openLiveFrom(lveFrm) {
         if (!lveFrm) { throw new Error("broadcast location required. must be encapsulated in backticks (``) as html or js args may be accepted.\n"); }
         else {
-          document.querySelector(".liveFromTick > div").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector('.liveFromTick')).height});`);
+          document.querySelector(".liveFromTick > div").style.transform = `translateY(${getComputedStyle(document.querySelector('.liveFromTick')).height})`;
           setTimeout(() => {
             document.querySelector(".liveFromTick > div > p:nth-child(2)").innerHTML = `${lveFrm}`;
-            document.querySelector(".liveFromTick > div").setAttribute("style", `transform: initial;`);
+            document.querySelector(".liveFromTick > div").style.transform = `initial`;
           }, 950);
         }
       }
-      function closeLiveFrom() { document.querySelector(".liveFromTick > div").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector('.liveFromTick')).height});`); }
+      function closeLiveFrom() { document.querySelector(".liveFromTick > div").style.transform = `translateY(${getComputedStyle(document.querySelector('.liveFromTick')).height})`; }
       function closeTick() {
-        document.querySelector(".liveFromTick > div").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector('.liveFromTick')).height});`);
-        document.querySelector(".cmntrTick > div").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector('.cmntrTick')).height});`);
-        document.querySelector(".headingTick > div").setAttribute("style", `transform: translateY(170px);`);
-        document.querySelector(".lowerThirds > div").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector('.lowerThirds')).height});`);
-        document.querySelector(".programStat > div").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector('.programStat')).height});`);
+        document.querySelector(".liveFromTick > div").style.transform = `translateY(${getComputedStyle(document.querySelector('.liveFromTick')).height})`;
+        document.querySelector(".cmntrTick > div").style.transform = `translateY(${getComputedStyle(document.querySelector('.cmntrTick')).height})`;
+        document.querySelector(".headingTick > div").style.transform = `translateY(170px)`;
+        document.querySelector(".lowerThirds > div").style.transform = `translateY(${getComputedStyle(document.querySelector('.lowerThirds')).height})`;
+        document.querySelector(".programStat > div").style.transform = `translateY(${getComputedStyle(document.querySelector('.programStat')).height})`;
+      }
+      function closeTick2() {
+        document.querySelector(".cmntrTick > div").style.transform = `translateY(${getComputedStyle(document.querySelector('.cmntrTick')).height})`;
+        document.querySelector(".headingTick > div").style.transform = `translateY(170px)`;
+        document.querySelector(".lowerThirds > div").style.transform = `translateY(${getComputedStyle(document.querySelector('.lowerThirds')).height})`;
       }
       function openProgStatus(stat) {
         if (!stat) { throw new Error("program status required. must be encapsulated in backticks (``) as html or js args may be accepted.\n"); }
         else {
-          document.querySelector(".programStat > div").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector('.programStat')).height});`);
+          document.querySelector(".programStat > div").style.transform = `translateY(${getComputedStyle(document.querySelector('.programStat')).height})`;
           setTimeout(() => {
             document.querySelector(".programStat > div > p").innerHTML = `${stat}`;
-            document.querySelector(".programStat > div").setAttribute("style", `transform: initial;`);
+            document.querySelector(".programStat > div").style.transform = `initial`;
           }, 950);
         }
       }
-      function closeProgStatus() { document.querySelector(".programStat > div").setAttribute("style", `transform: translateY(${getComputedStyle(document.querySelector('.programStat')).height});`); }
+      function closeProgStatus() { document.querySelector(".programStat > div").style.transform = `translateY(${getComputedStyle(document.querySelector('.programStat')).height})`; }
     </script>
   </head>
   <body onload="{
     viClock();
     lowerThirdTick();
     howToTickerExec();
-    document.querySelector('.liveFromTick > div').setAttribute('style', `transform: translateY(${getComputedStyle(document.querySelector('.liveFromTick')).height});`)
-    document.querySelector('.cmntrTick').setAttribute('style', `bottom: calc(${getComputedStyle(document.querySelector('.lowerThirds')).height} + ${getComputedStyle(document.querySelector('.headingTick > div')).height});`)
-    document.querySelector('.cmntrTick > div').setAttribute('style', `transform: translateY(${getComputedStyle(document.querySelector('.cmntrTick')).height});`)
-    document.querySelector('.headingTick').setAttribute('style', `bottom: calc(${getComputedStyle(document.querySelector('.lowerThirds')).height});`)
-    document.querySelector('.headingTick > div').setAttribute('style', `transform: translateY(170px);`)
-    document.querySelector('.lowerThirds > div').setAttribute('style', `transform: translateY(${getComputedStyle(document.querySelector('.lowerThirds')).height});`);
-    document.querySelector('.programStat > div').setAttribute('style', `transform: translateY(${getComputedStyle(document.querySelector('.programStat')).height});`);
+    document.querySelector('.liveFromTick > div').style.transform = `translateY(${getComputedStyle(document.querySelector('.liveFromTick')).height})`;
+    document.querySelector('.cmntrTick').style.bottom = `calc(${getComputedStyle(document.querySelector('.lowerThirds')).height} + ${getComputedStyle(document.querySelector('.headingTick > div')).height})`;
+    document.querySelector('.cmntrTick > div').style.transform = `translateY(${getComputedStyle(document.querySelector('.cmntrTick')).height})`;
+    document.querySelector('.headingTick').style.bottom = `calc(${getComputedStyle(document.querySelector('.lowerThirds')).height})`;
+    document.querySelector('.headingTick > div').style.transform = `translateY(170px)`;
+    document.querySelector('.lowerThirds > div').style.transform = `translateY(${getComputedStyle(document.querySelector('.lowerThirds')).height})`;
+    document.querySelector('.programStat > div').style.transform = `translateY(${getComputedStyle(document.querySelector('.programStat')).height})`;
   }">
     <div class="programStat">
       <div>
@@ -316,8 +348,8 @@
     </div>
     <div class="liveFromTick">
       <div>
-        <p style="background-color: #f00; font-weight: bold;">&bull; LIVE</p>
-        <p style="background-color: #161224a0; border-bottom: calc(1.9rem * 0.1875) #f00 solid;">place name</p>
+        <p style="background-color: #ff0000; font-weight: bold;">&bull; LIVE</p>
+        <p style="background-color: #161224a0; border-bottom: calc(1.9rem * 0.1875) #ff0000 solid;">place name</p>
       </div>
     </div>
     <div class="cmntrTick">
