@@ -174,7 +174,9 @@
     <script type="text/javascript">
       // js
       let txt = [
-        `#MamaNyoSquad&ensp;<b><span style="color: #ff0000;">&bull;</span> LIVE</b>&emsp;|&emsp;Simulcasting with DOAXVV Japanese`,
+        // first one should include `&emsp;|&emsp;Simulcasting with DOAXVV Japanese`
+        // if on simulcast with Japanese Edition.
+        `#MamaNyoSquad&ensp;<b><span style="color: #ff0000;">&bull;</span> LIVE</b>`,
         `${daysOfTheWeek(new Date(new Date().getTime() + diffOffs(11)).getDay())}, ${new Date(new Date().getTime() + diffOffs(11)).getDate()} ${monthNum(new Date(new Date().getTime() + diffOffs(11)).getMonth())} ${new Date(new Date().getTime() + diffOffs(11)).getFullYear()}`,
         `Website: https://mamanyosquad.github.io`
       ]
