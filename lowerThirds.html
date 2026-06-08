@@ -329,6 +329,29 @@
         }
       }
       function closeProgStatus() { document.querySelector(".programStat > div").style.transform = `translateY(${getComputedStyle(document.querySelector('.programStat')).height})`; }
+      function tickerBREAKING(breakingType, breakingDesc) {
+        let breakingHdl;
+        if (!breakingDesc) { throw new Error("breaking news type and description required. description must be encapsulated in backticks (``) as html or js args may be accepted.\n"); }
+        else {
+          document.querySelector(".headingTick > div").style.transform = "translateY(170px)";
+          switch (breakingType) {
+            case 1: // BREAKING NEWS
+              document.querySelector(".headingTick > div").style.backgroundColor = "#ff0000";
+              breakingHdl = "BREAKING NEWS";
+              break;
+            case 2: // DEVELOPING STORY
+              document.querySelector(".headingTick > div").style.backgroundColor = "#06a8ff";
+              breakingHdl = "DEVELOPING STORY";
+              break;
+            default: throw new Error("breaking news type and description required. description must be encapsulated in backticks (``) as html or js args may be accepted.\n");
+          }
+          setTimeout(() => {
+            document.querySelector(".hdlHd").innerHTML = `${breakingHdl}`;
+            document.querySelector(".hdlDsc").innerHTML = `${breakingDesc}`;
+            document.querySelector(".headingTick > div").style.transform = "initial";
+          }, 950);
+        }
+      }
     </script>
   </head>
   <body onload="{
