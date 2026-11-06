@@ -1,0 +1,135 @@
+<!-- THIS IS ONLY USED FOR DOAXVV SESSIONS BY STAFF. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="no-referrer">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="#MamaNyoSquad">
+    <link rel="icon" href="https://mamanyosquad.github.io/assets/favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://mamanyosquad.github.io/assets/favicon.png" type="image/x-icon">
+    <title>#MamaNyoSquad&ensp;&bull; LIVE&ensp;|&ensp;Lower Thirds</title>
+    <meta name="theme-color" content="#161224">
+    <meta name="msapplication-TileColor" content="#161224">
+    <meta name="msapplication-navbutton-color" content="#161224">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#161224">
+    <style type="text/css" media="all">
+      /* css */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+      html, body {
+        height: 100%;
+        overflow-x: hidden;
+        -ms-word-wrap: break-word;
+        word-wrap: break-word;
+        scroll-behavior: smooth;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Poppins", "Noto Sans JP", sans-serif;
+        color: #ffffff;
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        overflow: hidden;
+      }
+      .lowerThirds {
+        font-size: calc(1.9em - calc(1.9em / 4));
+        position: absolute;
+        bottom: 0;
+        height: max-content;
+        overflow: hidden;
+        z-index: 5000;
+        -webkit-transition: 0.95s;
+        -moz-transition: 0.95s;
+        -o-transition: 0.95s;
+        transition: 0.95s;
+      }
+      .lowerThirds > div {
+        width: 100vw;
+        padding: 0 calc(1.9rem * 7.5) 0.95rem calc(1.9rem * 7.5);
+        background-color: transparent;
+        -webkit-transition: 0.95s;
+        -moz-transition: 0.95s;
+        -o-transition: 0.95s;
+        transition: 0.95s;
+        display: -moz-grid;
+        display: -ms-grid;
+        display: grid;
+        grid-template-columns: auto calc(1.9rem * 5.625);
+      }
+      .textTick {
+        padding-top: 0.95rem;
+        width: 100%;
+        overflow: hidden;
+        color: transparent;
+      }
+      .textTick > p {
+        position: relative;
+        overflow: hidden !important;
+      }
+      .textTick > p > span { position: absolute; }
+      .clock {
+        width: 100%;
+        height: 100%;
+        background-color: #06a8ff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        border-radius: calc(19px / 2);
+      }
+    </style>
+    <script type="text/javascript">
+      // js
+      function viClock() {
+        let tD = new Date(new Date().getTime() + diffOffs(11)),
+          hh = tD.getHours(),
+          mm = addZero(tD.getMinutes()),
+          ss = addZero(tD.getSeconds());
+        document.querySelector(".clock > p").innerHTML = `${hr12(hh)}:${mm}${ampm(hh)} VIT`;
+        setTimeout(viClock, 0);
+      }
+      function addZero(z) {
+        if (z < 10) { return `0${z}`; }
+        else { return z; };
+      }
+      function diffOffs(tz) {
+        let dt = new Date(),
+          tzDiff = tz * 60 + dt.getTimezoneOffset();
+        return tzDiff * 60 * 1000;
+      }
+      function hr12(hr) {
+        let hrs = ["12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"];
+        for (let a = hr; a <= 23; a++) {
+          if (hr <= 11) { return hrs[a]; }
+          else if (hr <= 23) { return hrs[a - hrs.length]; }
+        }
+      }
+      function ampm(ap) {
+        let apD = ["am", "pm"];
+        for (let p = ap; p <= 23; p++) {
+          if (ap <= 11) { return apD[0]; }
+          else if (ap <= 23) { return apD[1]; }
+        }
+      }
+    </script>
+  </head>
+  <body onload="{ viClock(); }">
+    <div class="lowerThirds">
+      <div>
+        <div class="textTick">
+          <p>&#x25fc;&emsp;<span></span></p> <!-- headline lower thirds -->
+        </div>
+        <div class="clock">
+          <p></p> <!-- clock -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
