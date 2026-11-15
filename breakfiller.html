@@ -104,20 +104,22 @@
     <script type="text/javascript">
       // js
       let bkflrImg = [
-        `https://www.gamecity.com.tw/venusvacation/prism/assets/img/top-story_01.jpg`,
-        `https://mamanyosquad.github.io/assets/images/venusIsland/vi_2.jpg`
+        `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='59' viewBox='0 0 192 59'%3E%3Crect x='1' y='1' width='190' height='57' fill='none' stroke='gray' stroke-width='2'/%3E%3Cpath d='M8 8L184 51M184 8L8 51' fill='none' stroke='gray' stroke-width='2'/%3E%3C/svg%3E`,
+        `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='59' viewBox='0 0 192 59'%3E%3Crect x='1' y='1' width='190' height='57' fill='none' stroke='gray' stroke-width='2'/%3E%3Cpath d='M8 8L184 51M184 8L8 51' fill='none' stroke='gray' stroke-width='2'/%3E%3C/svg%3E`,
       ],
       bkflrSubt = [
+        // anything that indicates time MUST have &ensp;&bull;&ensp;
+        // before stating the time in VIT (UTC +11).
         `UPCOMING&ensp;&bull;&ensp;from 11:50pm VIT`,
-        `COMING UP`
+        `COMING UP`,
       ],
       bkflrHdl = [
-        `DOAXVV + PRISM at Tokyo Game Show 2025`,
-        `The Squad's Thoughts About the TGS Developments`
+        `breakfiller headline 1`,
+        `breakfiller headline 2`,
       ],
       bkflrDesc = [
-        `KOEI TECMO, Team NINJA, and DOAXVV Development Staff will present the latest developments involving the Venus Vacation Series -- DOAXVV and PRISM -- during their leg of the Tokyo Game Show 2025.`,
-        `Aga-chuu -- G.Mgr of the Squad -- shares her thoughts about the recent developments regarding the Venus Vacation Series announced during Tokyo Game Show 2025.`
+        `breakfiller description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec nulla eros. Nulla sagittis semper quam, eget maximus libero euismod a. Duis auctor eget odio.`,
+        `breakfiller description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce imperdiet sem sit amet felis ultrices sagittis. Nam at semper orci. Aenean lobortis dignissim sollicitudin. Proin.`,
       ];
       function viClock() {
         let tD = new Date(new Date().getTime() + diffOffs(11)),
@@ -247,7 +249,7 @@
     </div>
     <div class="MamaNyoLIVE">
       <div>
-        <img style="width: calc(1.9rem * 12.5);" src="md_files/MamaNyoLive_logo.png" alt="">
+        <img style="width: calc(1.9rem * 12.5);" src="md_files/MamaNyoLive_2026.png" alt="">
       </div>
     </div>
     <div class="clockOVL">
